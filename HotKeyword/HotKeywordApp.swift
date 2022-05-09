@@ -11,7 +11,6 @@ import Firebase
 @main
 struct HotKeywordApp: App {
     @StateObject var settings = AppSettings()
-    let hotKeywordViewModel = HotKeywordViewModel()
     
     init() {
         FirebaseApp.configure()
@@ -19,7 +18,7 @@ struct HotKeywordApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: hotKeywordViewModel)
+            ContentView(viewModel: HotKeywordViewModel())
                 .environmentObject(settings)
         }
     }

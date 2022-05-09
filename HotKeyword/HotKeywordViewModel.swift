@@ -12,9 +12,13 @@ final class HotKeywordViewModel: ObservableObject {
     @Published var keywords: [HotKeyword] = HotKeyword.dummy()
     @Published var updatedDate: Date = Date()
     
-    func updateHotKeywords() {
-        let db = Firestore.firestore()
-        
+    let db: Firestore
+    
+    init() {
+        db = Firestore.firestore()
+    }
+    
+    func hotKeywordBinding() {
         db.collection("keywords").document("finalKeywords")
             .addSnapshotListener { [weak self] documentSnapshot, error in
                 guard let self = self else { return }

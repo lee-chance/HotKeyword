@@ -12,22 +12,20 @@ struct ContentView: View {
     @ObservedObject var viewModel: HotKeywordViewModel
     
     var body: some View {
-        VStack {
-            Text("\(viewModel.updatedDate.toString())")
+        List {
+            Text("업데이트: \(viewModel.updatedDate.toString(format: "HH시 mm분"))")
             
-            List {
-                ForEach(viewModel.keywords, id: \.id) { keyword in
-                    Button(action: {
-                        viewModel.search(keyword: keyword.text, from: settings.searchEngine)
-                    }) {
-                        Text("\(keyword.rank) \(keyword.text)")
-                            .foregroundColor(.black)
-                    }
+            ForEach(viewModel.keywords, id: \.id) { keyword in
+                Button(action: {
+                    viewModel.search(keyword: keyword.text, from: settings.searchEngine)
+                }) {
+                    Text("\(keyword.rank) \(keyword.text)")
+                        .foregroundColor(.black)
                 }
             }
         }
         .onAppear {
-            viewModel.updateHotKeywords()
+//            viewModel.hotKeywordBinding()
         }
     }
 }
