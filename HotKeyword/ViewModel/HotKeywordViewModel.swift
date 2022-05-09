@@ -31,7 +31,6 @@ final class HotKeywordViewModel: ObservableObject {
                 guard
                     let serverKeywords = document.get("keywords") as? [String],
                     let serverUpdatedDate = document.get("timestamp") as? Timestamp
-                        
                 else {
                     print("Document data was empty.")
                     return

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */; };
+		2E084D8028290D7900A299E9 /* HotKeywordColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */; };
 		2E8C5C62282220A900F38EE4 /* HotKeywordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */; };
 		2E8C5C64282220A900F38EE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C63282220A900F38EE4 /* ContentView.swift */; };
 		2E8C5C66282220AB00F38EE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C65282220AB00F38EE4 /* Assets.xcassets */; };
@@ -59,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordColor.swift; sourceTree = "<group>"; };
 		2E8C5C5E282220A900F38EE4 /* HotKeyword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordApp.swift; sourceTree = "<group>"; };
 		2E8C5C63282220A900F38EE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +108,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E084D7F28290D7100A299E9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2E084D8228290D8900A299E9 /* Extention */,
+				2E084D8128290D8200A299E9 /* App */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2E084D8128290D8200A299E9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2E8C5C8E2822450600F38EE4 /* HotKeywordDefine.swift */,
+				2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2E084D8228290D8900A299E9 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				2E8C5CA4282264C600F38EE4 /* DateExtension.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		2E084D8328290DAB00A299E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E8C5C862822216B00F38EE4 /* HotKeyword.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2E084D8428290DBA00A299E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E8C5C8C2822414600F38EE4 /* AppSettings.swift */,
+				2E8C5C882822291900F38EE4 /* HotKeywordViewModel.swift */,
+				2E8C5C9128224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2E084D8528290DCE00A299E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2E8C5C63282220A900F38EE4 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2E8C5C55282220A900F38EE4 = {
 			isa = PBXGroup;
 			children = (
@@ -128,16 +183,13 @@
 			isa = PBXGroup;
 			children = (
 				2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */,
-				2E8C5C63282220A900F38EE4 /* ContentView.swift */,
+				2E084D8528290DCE00A299E9 /* View */,
+				2E084D8428290DBA00A299E9 /* ViewModel */,
+				2E084D8328290DAB00A299E9 /* Model */,
+				2E084D7F28290D7100A299E9 /* Common */,
 				2E8C5C65282220AB00F38EE4 /* Assets.xcassets */,
-				2E8C5C862822216B00F38EE4 /* HotKeyword.swift */,
-				2E8C5C882822291900F38EE4 /* HotKeywordViewModel.swift */,
-				2E8C5C9128224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift */,
-				2E8C5C8C2822414600F38EE4 /* AppSettings.swift */,
-				2E8C5C8E2822450600F38EE4 /* HotKeywordDefine.swift */,
 				2E8C5C9C282253E700F38EE4 /* GoogleService-Info.plist */,
 				2E8C5C67282220AB00F38EE4 /* Preview Content */,
-				2E8C5CA4282264C600F38EE4 /* DateExtension.swift */,
 			);
 			path = HotKeyword;
 			sourceTree = "<group>";
@@ -289,6 +341,7 @@
 				2E8C5C892822291900F38EE4 /* HotKeywordViewModel.swift in Sources */,
 				2E8C5C872822216B00F38EE4 /* HotKeyword.swift in Sources */,
 				2E8C5C64282220A900F38EE4 /* ContentView.swift in Sources */,
+				2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */,
 				2E8C5C8D2822414600F38EE4 /* AppSettings.swift in Sources */,
 				2E8C5C8F2822450600F38EE4 /* HotKeywordDefine.swift in Sources */,
 				2E8C5C62282220A900F38EE4 /* HotKeywordApp.swift in Sources */,
@@ -303,6 +356,7 @@
 				2E8C5C8B282229AD00F38EE4 /* HotKeyword.swift in Sources */,
 				2E8C5C8A282229A600F38EE4 /* HotKeywordViewModel.swift in Sources */,
 				2E8C5C7B2822211400F38EE4 /* KeywordWidget.swift in Sources */,
+				2E084D8028290D7900A299E9 /* HotKeywordColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

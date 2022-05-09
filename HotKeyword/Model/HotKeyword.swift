@@ -6,12 +6,19 @@
 //
 
 import Foundation
+import Firebase
 
 struct HotKeyword: Identifiable {
     let rank: Int
     let text: String
     
     var id: String { text }
+}
+
+struct InternalKeywordValue: Codable {
+    let point: Double
+    let updatedAt: Date
+//    let updatedAt: Timestamp?
 }
 
 #if DEBUG
