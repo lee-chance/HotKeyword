@@ -19,29 +19,36 @@ final class HotKeywordViewModel: ObservableObject {
     }
     
     func hotKeywordBinding() {
-        db.collection("keywords").document("finalKeywords")
+        db.collection("common").document("timestamp")
             .addSnapshotListener { [weak self] documentSnapshot, error in
-                guard let self = self else { return }
-                
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")
                     return
                 }
                 
-                guard
-                    let serverKeywords = document.get("keywords") as? [String],
-                    let serverUpdatedDate = document.get("timestamp") as? Timestamp
-                else {
+                guard let lastUpdatedAt = document.get("lastUpdatedAt") as? Timestamp else {
                     print("Document data was empty.")
                     return
                 }
                 
-                let updatedKeywords = serverKeywords.indices.map { HotKeyword(rank: $0 + 1, text: serverKeywords[$0]) }
-                
-                withAnimation {
-                    self.keywords = updatedKeywords
+                let finalKeywordsQuery = self?.db.collection("finalKeywords").order(by: "point", descending: true).limit(to: 20)
+                finalKeywordsQuery?.getDocuments { querySnapshot, err in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        var tempKeywords = [HotKeyword]()
+                        
+                        for (index, document) in querySnapshot!.documents.enumerated() {
+                            let hotKeyword = HotKeyword(rank: index + 1, text: document.documentID)
+                            tempKeywords.append(hotKeyword)
+                        }
+                        
+                        withAnimation {
+                            self?.keywords = tempKeywords
+                        }
+                        self?.updatedDate = lastUpdatedAt.dateValue()
+                    }
                 }
-                self.updatedDate = serverUpdatedDate.dateValue()
             }
     }
 }

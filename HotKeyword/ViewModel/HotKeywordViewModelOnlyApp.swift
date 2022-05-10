@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestoreSwift
 
 fileprivate typealias InternalKeywords = [String : InternalKeywordValue]
 
@@ -35,44 +36,44 @@ extension HotKeywordViewModel {
     }
     
     private func loadInternalKeywords(completion: @escaping (InternalKeywords?) -> Void) {
-        db.collection("keywords").document("internalKeywords")
-            .getDocument { document, error in
-                guard
-                    let document = document,
-                    document.exists,
-                    let datas = document.data() as? InternalKeywords
-                else {
-                    completion(nil)
-                    return
+        db.collection("internalKeywords")
+            .getDocuments { querySnapshot, err in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    var tempKeywords = InternalKeywords()
+                    
+                    for document in querySnapshot!.documents {
+                        if let point = document.data()["point"] as? Double,
+                           let updatedAt = document.data()["updatedAt"] as? Timestamp {
+                            tempKeywords[document.documentID] = InternalKeywordValue(point: point, updatedAt: updatedAt.dateValue())
+                        } else {
+                        }
+                    }
+                    
+                    completion(tempKeywords.keys.count > 0 ? tempKeywords : nil)
                 }
-                
-                completion(datas.keys.count > 0 ? datas : nil)
             }
     }
     
     private func addCountInternalKeyword(keywords: InternalKeywords?, keyword: String) {
-        var updatedKeywords: InternalKeywords
+        let updatedKeyword: InternalKeywordValue
+        
         if let keywords = keywords {
-            updatedKeywords = keywords
-            
             if keywords.keys.contains(keyword) {
-                let point = updatedKeywords[keyword]!.point
-                let newInternalKeyword = InternalKeywordValue(point: point + 0.1, updatedAt: Timestamp().dateValue())
-                updatedKeywords[keyword] = newInternalKeyword
+                let point = keywords[keyword]!.point
+                updatedKeyword = InternalKeywordValue(point: point + 0.1, updatedAt: Timestamp().dateValue())
             } else {
-                let newInternalKeyword = InternalKeywordValue(point: 0.1, updatedAt: Timestamp().dateValue())
-                updatedKeywords[keyword] = newInternalKeyword
+                updatedKeyword = InternalKeywordValue(point: 0.1, updatedAt: Timestamp().dateValue())
             }
         } else {
-            updatedKeywords = [keyword : InternalKeywordValue(point: 0.1, updatedAt: Timestamp().dateValue())]
+            updatedKeyword = InternalKeywordValue(point: 0.1, updatedAt: Timestamp().dateValue())
         }
         
-        db.collection("keywords").document("internalKeywords").setData(updatedKeywords) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-            }
+        do {
+            try db.collection("internalKeywords").document(keyword).setData(from: updatedKeyword)
+        } catch let error {
+            print("Error writing city to Firestore: \(error)")
         }
     }
 }

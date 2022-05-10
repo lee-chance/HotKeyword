@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Firebase
 
 struct HotKeyword: Identifiable {
     let rank: Int
@@ -18,7 +17,6 @@ struct HotKeyword: Identifiable {
 struct InternalKeywordValue: Codable {
     let point: Double
     let updatedAt: Date
-//    let updatedAt: Timestamp?
 }
 
 #if DEBUG
