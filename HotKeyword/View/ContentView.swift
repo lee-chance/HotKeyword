@@ -19,20 +19,7 @@ struct ContentView: View {
                         Button(action: {
                             viewModel.search(keyword: keyword.text, from: settings.searchEngine)
                         }) {
-                            HStack {
-                                Text("\(keyword.rank)")
-                                    .foregroundColor(.text)
-                                    .frame(width: 32, height: 32)
-                                    .background(
-                                        Rectangle()
-                                            .background(Color.gray.opacity(0.3))
-                                            .cornerRadius(8)
-                                    )
-                                
-                                Text(keyword.text)
-                                    .foregroundColor(.text)
-                            }
-                            .foregroundColor(.clear)
+                            KeywordRow(keyword: keyword)
                         }
                     }
                 } header: {

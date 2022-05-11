@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */; };
 		2E084D8028290D7900A299E9 /* HotKeywordColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */; };
+		2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
+		2E2EB51B282C1971001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E394D73282A3A8100445D5C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D72282A3A8100445D5C /* FirebaseAnalytics */; };
 		2E394D77282A3A8100445D5C /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D76282A3A8100445D5C /* FirebaseCrashlytics */; };
 		2E394D79282A3A8100445D5C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D78282A3A8100445D5C /* FirebaseFirestore */; };
@@ -61,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordColor.swift; sourceTree = "<group>"; };
+		2E2EB519282C1901001F5CBB /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
 		2E8C5C5E282220A900F38EE4 /* HotKeyword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordApp.swift; sourceTree = "<group>"; };
 		2E8C5C63282220A900F38EE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -154,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				2E8C5C63282220A900F38EE4 /* ContentView.swift */,
+				2E2EB519282C1901001F5CBB /* SharedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -338,6 +342,7 @@
 				2E8C5C892822291900F38EE4 /* HotKeywordViewModel.swift in Sources */,
 				2E8C5C872822216B00F38EE4 /* HotKeyword.swift in Sources */,
 				2E8C5C64282220A900F38EE4 /* ContentView.swift in Sources */,
+				2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */,
 				2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */,
 				2E8C5C8D2822414600F38EE4 /* AppSettings.swift in Sources */,
 				2E8C5C8F2822450600F38EE4 /* HotKeywordDefine.swift in Sources */,
@@ -352,6 +357,7 @@
 				2E8C5C902822466C00F38EE4 /* HotKeywordDefine.swift in Sources */,
 				2E8C5C8B282229AD00F38EE4 /* HotKeyword.swift in Sources */,
 				2E8C5C8A282229A600F38EE4 /* HotKeywordViewModel.swift in Sources */,
+				2E2EB51B282C1971001F5CBB /* SharedView.swift in Sources */,
 				2E8C5C7B2822211400F38EE4 /* KeywordWidget.swift in Sources */,
 				2E084D8028290D7900A299E9 /* HotKeywordColor.swift in Sources */,
 			);

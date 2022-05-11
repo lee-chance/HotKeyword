@@ -37,7 +37,7 @@ struct Provider: TimelineProvider {
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let keywords: [HotKeyword] = HotKeyword.dummy()
-    let updatedDate: Date = Date()
+    let updatedAt: Date = Date()
 }
 
 struct KeywordWidgetEntryView : View {
@@ -45,18 +45,29 @@ struct KeywordWidgetEntryView : View {
 
     var body: some View {
         VStack {
-            Text(entry.date, style: .time)
-            
-            ForEach(entry.keywords.prefix(5), id: \.id) { keyword in
-                Text(keyword.text)
+            VStack(alignment: .leading) {
+                Circle()
+                    .frame(width: 36, height: 36)
+                    .overlay(
+                        Text("🔥")d
+                    )
+                
+                Text(entry.updatedAt, style: .time)
+                    .font(.footnote)
+                
+                Text("실시간 인기 검색어")
+                    .font(.callout)
             }
+            
+            let keyword = entry.keywords.first!
+            KeywordRow(keyword: keyword)
         }
     }
 }
 
 @main
 struct KeywordWidget: Widget {
-    let kind: String = "KeywordWidget"
+    let kind: String = "com.cslee.HotKeyword.KeywordWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
@@ -73,11 +84,11 @@ struct KeywordWidget_Previews: PreviewProvider {
             KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
             
-            KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
-                .previewContext(WidgetPreviewContext(family: .systemMedium))
+//            KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
+//                .previewContext(WidgetPreviewContext(family: .systemMedium))
             
-            KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
-                .previewContext(WidgetPreviewContext(family: .systemLarge))
+//            KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
+//                .previewContext(WidgetPreviewContext(family: .systemLarge))
             
 //            KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
 //                .previewContext(WidgetPreviewContext(family: .systemExtraLarge))
