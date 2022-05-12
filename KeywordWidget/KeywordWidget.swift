@@ -20,17 +20,34 @@ struct Provider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
-        
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
+        let group = DispatchGroup()
+        
+        DispatchQueue.main.async(group: group) {
+            group.enter()
+            
+            let entry = SimpleEntry(date: currentDate)
             entries.append(entry)
+            
+            // TODO: 대충 네크워크 타는 곳
+//            network.getImage(url: "https://picsum.photos/300/300") { result in
+//                switch result {
+//                case .success(let data):
+//                    let entry = SimpleEntry(date: currentDate + 1, imageData: data)
+//                    entries.append(entry)
+//                    group.leave()
+//                case .failure(_):
+//                    let entry = SimpleEntry(date: currentDate + 1, imageData: Data())
+//                    entries.append(entry)
+//                    group.leave()
+//                }
+//            }
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+        
+        group.notify(queue: .main) {
+            let timeline = Timeline(entries: entries, policy: .atEnd)
+            completion(timeline)
+        }
     }
 }
 
@@ -41,6 +58,7 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct KeywordWidgetEntryView : View {
+    @Environment(\.widgetFamily) var family: WidgetFamily // TODO: 이거로 분기 처리하기~
     var entry: Provider.Entry
 
     var body: some View {
@@ -49,7 +67,7 @@ struct KeywordWidgetEntryView : View {
                 Circle()
                     .frame(width: 36, height: 36)
                     .overlay(
-                        Text("🔥")d
+                        Text("🔥")
                     )
                 
                 Text(entry.updatedAt, style: .time)
@@ -58,10 +76,19 @@ struct KeywordWidgetEntryView : View {
                 Text("실시간 인기 검색어")
                     .font(.callout)
             }
+            .frame(maxWidth: .infinity)
             
             let keyword = entry.keywords.first!
-            KeywordRow(keyword: keyword)
+            Text(keyword.text)
+                .fontWeight(.bold)
+                .padding(.vertical, 4)
+                .frame(maxWidth: .infinity)
+                .background(
+                    Color.gold
+                        .cornerRadius(8)
+                )
         }
+        .padding(.horizontal, 8)
     }
 }
 
@@ -73,7 +100,7 @@ struct KeywordWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             KeywordWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
+        .configurationDisplayName("🔥 실시간 인기 검색어")
         .description("This is an example widget.")
     }
 }
