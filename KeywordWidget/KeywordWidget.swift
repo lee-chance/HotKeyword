@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+import Firebase
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
@@ -14,41 +15,24 @@ struct Provider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), keywords: HotKeyword.dummy(), updatedAt: Date())
-        completion(entry)
+        let currentDate = Date()
+        
+        // 이거 이렇게 하면 안되고 파이에베이스에서 가져와야댄다~~
+        if let userDefaults = UserDefaults(suiteName: "group.com.cslee.HotKeyword") {
+            let savedKeywords = userDefaults.object(forKey: "keywords") as? Data ?? Data()
+            let updatedDate = userDefaults.object(forKey: "updatedDate") as? Date ?? Date()
+            let keywords = (try? PropertyListDecoder().decode([HotKeyword].self, from: savedKeywords)) ?? [HotKeyword(rank: 1, text: "오류오류ㅜ")]
+            
+            let newEntry = SimpleEntry(date: currentDate + 1, keywords: keywords, updatedAt: updatedDate)
+            completion(newEntry)
+        }
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-        let currentDate = Date()
-        let group = DispatchGroup()
-        
-        DispatchQueue.main.async(group: group) {
-            group.enter()
+        getSnapshot(in: context) { entry in
+            let defaultEntry = SimpleEntry(date: entry.date - 1, keywords: entry.keywords, updatedAt: entry.updatedAt)
             
-            let entry = SimpleEntry(date: currentDate, keywords: HotKeyword.dummy())
-            entries.append(entry)
-            
-            // TODO: 대충 네크워크 타는 곳
-            let newEntry = SimpleEntry(date: currentDate + 1, keywords: ), updatedAt: <#Date#>
-            entries.append(newEntry)
-            group.leave()
-//            network.getImage(url: "https://picsum.photos/300/300") { result in
-//                switch result {
-//                case .success(let data):
-//                    let entry = SimpleEntry(date: currentDate + 1, imageData: data)
-//                    entries.append(entry)
-//                    group.leave()
-//                case .failure(_):
-//                    let entry = SimpleEntry(date: currentDate + 1, imageData: Data())
-//                    entries.append(entry)
-//                    group.leave()
-//                }
-//            }
-        }
-        
-        group.notify(queue: .main) {
-            let timeline = Timeline(entries: entries, policy: .atEnd)
+            let timeline = Timeline(entries: [defaultEntry, entry], policy: .atEnd)
             completion(timeline)
         }
     }
@@ -98,7 +82,7 @@ struct KeywordWidgetEntryView : View {
 @main
 struct KeywordWidget: Widget {
     let kind: String = "com.cslee.HotKeyword.KeywordWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             KeywordWidgetEntryView(entry: entry)

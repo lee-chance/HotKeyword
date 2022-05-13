@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HotKeyword: Identifiable {
+struct HotKeyword: Identifiable, Codable {
     let rank: Int
     let text: String
     

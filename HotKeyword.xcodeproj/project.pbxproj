@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2E01D150282DF107008EA239 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01D14F282DF107008EA239 /* RootView.swift */; };
 		2E01D152282DF110008EA239 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01D151282DF110008EA239 /* SplashView.swift */; };
+		2E01D154282E22DC008EA239 /* HotKeywordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01D153282E22DC008EA239 /* HotKeywordModel.swift */; };
+		2E01D155282E2332008EA239 /* HotKeywordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01D153282E22DC008EA239 /* HotKeywordModel.swift */; };
+		2E01D157282E514E008EA239 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E01D156282E514E008EA239 /* FirebaseAnalytics */; };
+		2E01D159282E514E008EA239 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E01D158282E514E008EA239 /* FirebaseCrashlytics */; };
+		2E01D15B282E514F008EA239 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2E01D15A282E514F008EA239 /* FirebaseFirestoreSwift */; };
 		2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */; };
 		2E084D8028290D7900A299E9 /* HotKeywordColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */; };
 		2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
@@ -66,6 +71,9 @@
 /* Begin PBXFileReference section */
 		2E01D14F282DF107008EA239 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		2E01D151282DF110008EA239 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		2E01D153282E22DC008EA239 /* HotKeywordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordModel.swift; sourceTree = "<group>"; };
+		2E01D17B282E5357008EA239 /* HotKeyword.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotKeyword.entitlements; sourceTree = "<group>"; };
+		2E01D17C282E5371008EA239 /* KeywordWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeywordWidgetExtension.entitlements; sourceTree = "<group>"; };
 		2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordColor.swift; sourceTree = "<group>"; };
 		2E2EB519282C1901001F5CBB /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
 		2E8C5C5E282220A900F38EE4 /* HotKeyword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyword.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +114,10 @@
 			files = (
 				2E8C5C782822211400F38EE4 /* SwiftUI.framework in Frameworks */,
 				2E8C5C762822211400F38EE4 /* WidgetKit.framework in Frameworks */,
+				2E01D159282E514E008EA239 /* FirebaseCrashlytics in Frameworks */,
+				2E01D157282E514E008EA239 /* FirebaseAnalytics in Frameworks */,
 				2E394D7F282A423200445D5C /* FirebaseFirestore in Frameworks */,
+				2E01D15B282E514F008EA239 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				2E8C5C862822216B00F38EE4 /* HotKeyword.swift */,
+				2E01D153282E22DC008EA239 /* HotKeywordModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +183,7 @@
 		2E8C5C55282220A900F38EE4 = {
 			isa = PBXGroup;
 			children = (
+				2E01D17C282E5371008EA239 /* KeywordWidgetExtension.entitlements */,
 				2E8C5C60282220A900F38EE4 /* HotKeyword */,
 				2E8C5C792822211400F38EE4 /* KeywordWidget */,
 				2E8C5C742822211400F38EE4 /* Frameworks */,
@@ -190,6 +203,7 @@
 		2E8C5C60282220A900F38EE4 /* HotKeyword */ = {
 			isa = PBXGroup;
 			children = (
+				2E01D17B282E5357008EA239 /* HotKeyword.entitlements */,
 				2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */,
 				2E084D8528290DCE00A299E9 /* View */,
 				2E084D8428290DBA00A299E9 /* ViewModel */,
@@ -272,6 +286,9 @@
 			name = KeywordWidgetExtension;
 			packageProductDependencies = (
 				2E394D7E282A423200445D5C /* FirebaseFirestore */,
+				2E01D156282E514E008EA239 /* FirebaseAnalytics */,
+				2E01D158282E514E008EA239 /* FirebaseCrashlytics */,
+				2E01D15A282E514F008EA239 /* FirebaseFirestoreSwift */,
 			);
 			productName = KeywordWidgetExtension;
 			productReference = 2E8C5C732822211400F38EE4 /* KeywordWidgetExtension.appex */;
@@ -345,6 +362,7 @@
 			files = (
 				2E8C5C9228224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift in Sources */,
 				2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */,
+				2E01D154282E22DC008EA239 /* HotKeywordModel.swift in Sources */,
 				2E8C5C892822291900F38EE4 /* HotKeywordViewModel.swift in Sources */,
 				2E8C5C872822216B00F38EE4 /* HotKeyword.swift in Sources */,
 				2E8C5C64282220A900F38EE4 /* ContentView.swift in Sources */,
@@ -366,6 +384,7 @@
 				2E8C5C8B282229AD00F38EE4 /* HotKeyword.swift in Sources */,
 				2E8C5C8A282229A600F38EE4 /* HotKeywordViewModel.swift in Sources */,
 				2E2EB51B282C1971001F5CBB /* SharedView.swift in Sources */,
+				2E01D155282E2332008EA239 /* HotKeywordModel.swift in Sources */,
 				2E8C5C7B2822211400F38EE4 /* KeywordWidget.swift in Sources */,
 				2E084D8028290D7900A299E9 /* HotKeywordColor.swift in Sources */,
 			);
@@ -502,6 +521,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HotKeyword/HotKeyword.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HotKeyword/Preview Content\"";
@@ -533,6 +553,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HotKeyword/HotKeyword.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HotKeyword/Preview Content\"";
@@ -563,6 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = KeywordWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2PJ23MZ7RT;
@@ -591,6 +613,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = KeywordWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2PJ23MZ7RT;
@@ -658,6 +681,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2E01D156282E514E008EA239 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E394D71282A3A8100445D5C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		2E01D158282E514E008EA239 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E394D71282A3A8100445D5C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		2E01D15A282E514F008EA239 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E394D71282A3A8100445D5C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		2E394D72282A3A8100445D5C /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2E394D71282A3A8100445D5C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

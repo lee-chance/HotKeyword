@@ -9,8 +9,22 @@ import SwiftUI
 import Firebase
 
 final class HotKeywordViewModel: ObservableObject {
-    @Published var keywords: [HotKeyword] = HotKeyword.dummy()
-    @Published var updatedDate: Date = Date()
+    @Published private(set) var model = HotKeywordModel() {
+        didSet {
+            if let userDefaults = UserDefaults(suiteName: "group.com.cslee.HotKeyword") {
+                userDefaults.set(try? PropertyListEncoder().encode(model.keywords), forKey: "keywords")
+                userDefaults.set(model.updatedDate, forKey: "updatedDate")
+            }
+        }
+    }
+    
+    var keywords: [HotKeyword] {
+        model.keywords
+    }
+    
+    var updatedDate: Date {
+        model.updatedDate
+    }
     
     let db: Firestore
     
@@ -43,10 +57,8 @@ final class HotKeywordViewModel: ObservableObject {
                             tempKeywords.append(hotKeyword)
                         }
                         
-                        withAnimation {
-                            self?.keywords = tempKeywords
-                        }
-                        self?.updatedDate = lastUpdatedAt.dateValue()
+                        let model = HotKeywordModel(keywords: tempKeywords, updatedDate: lastUpdatedAt.dateValue())
+                        self?.model = model
                     }
                 }
             }
