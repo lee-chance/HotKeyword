@@ -18,7 +18,7 @@ struct HotKeywordApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: HotKeywordViewModel())
+            RootView()
                 .environmentObject(settings)
         }
     }
