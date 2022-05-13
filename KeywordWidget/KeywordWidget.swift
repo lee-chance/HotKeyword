@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(date: Date(), keywords: HotKeyword.dummy(), updatedAt: Date())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
+        let entry = SimpleEntry(date: Date(), keywords: HotKeyword.dummy(), updatedAt: Date())
         completion(entry)
     }
 
@@ -26,10 +26,13 @@ struct Provider: TimelineProvider {
         DispatchQueue.main.async(group: group) {
             group.enter()
             
-            let entry = SimpleEntry(date: currentDate)
+            let entry = SimpleEntry(date: currentDate, keywords: HotKeyword.dummy())
             entries.append(entry)
             
             // TODO: 대충 네크워크 타는 곳
+            let newEntry = SimpleEntry(date: currentDate + 1, keywords: ), updatedAt: <#Date#>
+            entries.append(newEntry)
+            group.leave()
 //            network.getImage(url: "https://picsum.photos/300/300") { result in
 //                switch result {
 //                case .success(let data):
@@ -53,8 +56,8 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let keywords: [HotKeyword] = HotKeyword.dummy()
-    let updatedAt: Date = Date()
+    let keywords: [HotKeyword]
+    let updatedAt: Date
 }
 
 struct KeywordWidgetEntryView : View {
@@ -108,7 +111,7 @@ struct KeywordWidget: Widget {
 struct KeywordWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
+            KeywordWidgetEntryView(entry: SimpleEntry(date: Date(), keywords: HotKeyword.dummy(), updatedAt: Date()))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
             
 //            KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
