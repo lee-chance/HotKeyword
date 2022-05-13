@@ -29,19 +29,31 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
+            .listStyle(.insetGrouped)
             .navigationBarTitle("🔥 실시간 인기 검색어")
             .toolbar {
                 ToolbarItem {
-                    Button(action: {
-                        
-                    }) {
+                    if #available(iOS 15.0, *) {
+                        Button(action: {
+                            
+                        }) {
+                            Image(systemName: "gearshape.fill")
+                                .resizable()
+                                .frame(width: 16, height: 16)
+                                .foregroundColor(.text)
+                        }
+                    } else {
                         Image(systemName: "gearshape.fill")
                             .resizable()
-                            .frame(width: 16, height: 16)
                             .foregroundColor(.text)
+                            .frame(width: 20, height: 20)
+                            .onTapGesture {
+                                
+                            }
                     }
                 }
             }
+            .accentColor(.text)
         }
         .onAppear {
             viewModel.hotKeywordBinding()
