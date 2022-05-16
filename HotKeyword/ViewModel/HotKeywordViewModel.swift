@@ -33,33 +33,27 @@ final class HotKeywordViewModel: ObservableObject {
     }
     
     func hotKeywordBinding() {
-        db.collection("common").document("timestamp")
+        db.collection("keywords").document("finalKeywords")
             .addSnapshotListener { [weak self] documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")
                     return
                 }
                 
-                guard let lastUpdatedAt = document.get("lastUpdatedAt") as? Timestamp else {
+                guard
+                    let lastUpdatedAt = document.get("timestamp") as? Timestamp,
+                    let keywords = document.get("keywords") as? [String]
+                else {
                     print("Document data was empty.")
                     return
                 }
                 
-                let finalKeywordsQuery = self?.db.collection("finalKeywords").order(by: "point", descending: true).limit(to: 20)
-                finalKeywordsQuery?.getDocuments { querySnapshot, err in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        var tempKeywords = [HotKeyword]()
-                        
-                        for (index, document) in querySnapshot!.documents.enumerated() {
-                            let hotKeyword = HotKeyword(rank: index + 1, text: document.documentID)
-                            tempKeywords.append(hotKeyword)
-                        }
-                        
-                        let model = HotKeywordModel(keywords: tempKeywords, updatedDate: lastUpdatedAt.dateValue())
-                        self?.model = model
-                    }
+                let hotKeywords = keywords.indices.map { HotKeyword(rank: $0 + 1, text: keywords[$0]) }
+                
+                let model = HotKeywordModel(keywords: hotKeywords, updatedDate: lastUpdatedAt.dateValue())
+                
+                withAnimation {
+                    self?.model = model
                 }
             }
     }

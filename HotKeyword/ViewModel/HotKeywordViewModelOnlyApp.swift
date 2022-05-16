@@ -64,7 +64,7 @@ extension HotKeywordViewModel {
                 let point = keywords[keyword]!.point
                 updatedKeyword = InternalKeywordValue(point: point + 0.1, updatedAt: Timestamp().dateValue())
             } else {
-                updatedKeyword = InternalKeywordValue(point: 10000, updatedAt: Timestamp().dateValue())
+                updatedKeyword = InternalKeywordValue(point: 0.1, updatedAt: Timestamp().dateValue())
             }
         } else {
             updatedKeyword = InternalKeywordValue(point: 0.1, updatedAt: Timestamp().dateValue())

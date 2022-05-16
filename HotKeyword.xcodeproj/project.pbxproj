@@ -23,6 +23,7 @@
 		2E394D79282A3A8100445D5C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D78282A3A8100445D5C /* FirebaseFirestore */; };
 		2E394D7B282A3A8100445D5C /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D7A282A3A8100445D5C /* FirebaseFirestoreCombine-Community */; };
 		2E394D7F282A423200445D5C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D7E282A423200445D5C /* FirebaseFirestore */; };
+		2E865B51282FA35E003F6119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C9C282253E700F38EE4 /* GoogleService-Info.plist */; };
 		2E8C5C62282220A900F38EE4 /* HotKeywordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */; };
 		2E8C5C64282220A900F38EE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C63282220A900F38EE4 /* ContentView.swift */; };
 		2E8C5C66282220AB00F38EE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C65282220AB00F38EE4 /* Assets.xcassets */; };
@@ -34,7 +35,6 @@
 		2E8C5C812822211500F38EE4 /* KeywordWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E8C5C732822211400F38EE4 /* KeywordWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2E8C5C872822216B00F38EE4 /* HotKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C862822216B00F38EE4 /* HotKeyword.swift */; };
 		2E8C5C892822291900F38EE4 /* HotKeywordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C882822291900F38EE4 /* HotKeywordViewModel.swift */; };
-		2E8C5C8A282229A600F38EE4 /* HotKeywordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C882822291900F38EE4 /* HotKeywordViewModel.swift */; };
 		2E8C5C8B282229AD00F38EE4 /* HotKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C862822216B00F38EE4 /* HotKeyword.swift */; };
 		2E8C5C8D2822414600F38EE4 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C8C2822414600F38EE4 /* AppSettings.swift */; };
 		2E8C5C8F2822450600F38EE4 /* HotKeywordDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C8E2822450600F38EE4 /* HotKeywordDefine.swift */; };
@@ -350,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E8C5C7D2822211500F38EE4 /* Assets.xcassets in Resources */,
+				2E865B51282FA35E003F6119 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +383,6 @@
 			files = (
 				2E8C5C902822466C00F38EE4 /* HotKeywordDefine.swift in Sources */,
 				2E8C5C8B282229AD00F38EE4 /* HotKeyword.swift in Sources */,
-				2E8C5C8A282229A600F38EE4 /* HotKeywordViewModel.swift in Sources */,
 				2E2EB51B282C1971001F5CBB /* SharedView.swift in Sources */,
 				2E01D155282E2332008EA239 /* HotKeywordModel.swift in Sources */,
 				2E8C5C7B2822211400F38EE4 /* KeywordWidget.swift in Sources */,

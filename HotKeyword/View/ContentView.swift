@@ -27,6 +27,7 @@ struct ContentView: View {
                         .font(Font.caption)
                         .foregroundColor(.gray)
                         .frame(maxWidth: .infinity, alignment: .trailing)
+                        .animation(nil)
                 }
             }
             .listStyle(.insetGrouped)

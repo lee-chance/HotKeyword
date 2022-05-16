@@ -15,17 +15,28 @@ struct Provider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let currentDate = Date()
+        let db = Firestore.firestore()
         
-        // 이거 이렇게 하면 안되고 파이에베이스에서 가져와야댄다~~
-        if let userDefaults = UserDefaults(suiteName: "group.com.cslee.HotKeyword") {
-            let savedKeywords = userDefaults.object(forKey: "keywords") as? Data ?? Data()
-            let updatedDate = userDefaults.object(forKey: "updatedDate") as? Date ?? Date()
-            let keywords = (try? PropertyListDecoder().decode([HotKeyword].self, from: savedKeywords)) ?? [HotKeyword(rank: 1, text: "오류오류ㅜ")]
-            
-            let newEntry = SimpleEntry(date: currentDate + 1, keywords: keywords, updatedAt: updatedDate)
-            completion(newEntry)
-        }
+        db.collection("keywords").document("finalKeywords")
+            .getDocument { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                
+                guard
+                    let lastUpdatedAt = document.get("timestamp") as? Timestamp,
+                    let keywords = document.get("keywords") as? [String]
+                else {
+                    print("Document data was empty.")
+                    return
+                }
+                
+                let hotKeywords = keywords.indices.map { HotKeyword(rank: $0 + 1, text: keywords[$0]) }
+                
+                let entry = SimpleEntry(date: Date() + 1, keywords: hotKeywords, updatedAt: lastUpdatedAt.dateValue())
+                completion(entry)
+            }
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
@@ -82,6 +93,12 @@ struct KeywordWidgetEntryView : View {
 @main
 struct KeywordWidget: Widget {
     let kind: String = "com.cslee.HotKeyword.KeywordWidget"
+    
+    init() {
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
+    }
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in

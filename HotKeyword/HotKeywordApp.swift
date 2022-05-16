@@ -13,7 +13,9 @@ struct HotKeywordApp: App {
     @StateObject var settings = AppSettings()
     
     init() {
-        FirebaseApp.configure()
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
     }
     
     var body: some Scene {
