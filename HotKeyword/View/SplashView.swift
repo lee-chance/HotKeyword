@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SplashView: View {
+    @ObservedObject var splash = SplashViewModel()
+    
     @State private var isLogoAnimationOn = false
     @State private var showSplashView = true
     
@@ -20,6 +22,7 @@ struct SplashView: View {
                     .font(.system(size: 80))
                     .position(x: geometry.size.width / 2, y: isLogoAnimationOn ? geometry.size.height / 2 : -geometry.size.height)
             }
+            .ignoresSafeArea()
             .transition(.move(edge: .top))
             .zIndex(1)
             .onAppear {
