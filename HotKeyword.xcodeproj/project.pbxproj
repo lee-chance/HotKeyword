@@ -43,6 +43,9 @@
 		2E8C5C9D282253E700F38EE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C9C282253E700F38EE4 /* GoogleService-Info.plist */; };
 		2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5CA4282264C600F38EE4 /* DateExtension.swift */; };
 		2EAC970328334F8200CA6BB3 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC970228334F8200CA6BB3 /* SplashViewModel.swift */; };
+		2EAC9706283352E300CA6BB3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC9705283352E300CA6BB3 /* Service.swift */; };
+		2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC97072833673B00CA6BB3 /* ServiceProvider.swift */; };
+		2EAC970A2833A65100CA6BB3 /* HotKeywordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC97092833A65000CA6BB3 /* HotKeywordService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,9 @@
 		2E8C5CA4282264C600F38EE4 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2EAC970128334EA600CA6BB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2EAC970228334F8200CA6BB3 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		2EAC9705283352E300CA6BB3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		2EAC97072833673B00CA6BB3 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		2EAC97092833A65000CA6BB3 /* HotKeywordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +136,10 @@
 		2E084D7F28290D7100A299E9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2EAC9704283352C300CA6BB3 /* Network */,
 				2E084D8228290D8900A299E9 /* Extention */,
 				2E084D8128290D8200A299E9 /* App */,
+				2EAC97092833A65000CA6BB3 /* HotKeywordService.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -246,6 +254,15 @@
 				2E8C5C7E2822211500F38EE4 /* Info.plist */,
 			);
 			path = KeywordWidget;
+			sourceTree = "<group>";
+		};
+		2EAC9704283352C300CA6BB3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2EAC9705283352E300CA6BB3 /* Service.swift */,
+				2EAC97072833673B00CA6BB3 /* ServiceProvider.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +385,7 @@
 			files = (
 				2E8C5C9228224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift in Sources */,
 				2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */,
+				2EAC9706283352E300CA6BB3 /* Service.swift in Sources */,
 				2E01D154282E22DC008EA239 /* HotKeywordModel.swift in Sources */,
 				2EAC970328334F8200CA6BB3 /* SplashViewModel.swift in Sources */,
 				2E8C5C892822291900F38EE4 /* HotKeywordViewModel.swift in Sources */,
@@ -376,7 +394,9 @@
 				2E01D152282DF110008EA239 /* SplashView.swift in Sources */,
 				2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */,
 				2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */,
+				2EAC970A2833A65100CA6BB3 /* HotKeywordService.swift in Sources */,
 				2E8C5C8D2822414600F38EE4 /* AppSettings.swift in Sources */,
+				2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */,
 				2E8C5C8F2822450600F38EE4 /* HotKeywordDefine.swift in Sources */,
 				2E8C5C62282220A900F38EE4 /* HotKeywordApp.swift in Sources */,
 				2E01D150282DF107008EA239 /* RootView.swift in Sources */,
