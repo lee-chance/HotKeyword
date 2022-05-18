@@ -9,34 +9,45 @@ import SwiftUI
 import Combine
 
 final class SplashViewModel: ObservableObject {
+    private var tasks = [() -> Void]()
     private let provider = ServiceProvider<FirebaseService>()
     
-    func doStep() {
-        if #available(iOS 15.0, *) {
-            Task {
-                print("== async/await response ==")
-                do {
-                    let response = try await provider.get(service: .initialize, decodeType: AppInitialize.self)
-                    print("response: \(response)")
-                } catch {
-                    print("error: \(error)")
-                }
-            }
-        } else {
-            provider.get(service: .initialize, decodeType: AppInitialize.self) { result in
-                print("== callback response ==")
-                switch result {
-                case .success(let response):
-                    print("response: \(response)")
-                case .failure(let error):
-                    print("error: \(error)")
-                }
-            }
-        }
+    @Published var isLogoAnimationOn = false
+    @Published var showSplashView = true
+    
+    init() {
+        initiaize()
     }
-}
-
-
-struct AppInitialize: Codable {
-    var pointPerClick: CGFloat
+    
+    private func initiaize() {
+        Async.serial(tasks: [
+            { [weak self] done in
+                self?.provider.get(service: .initialize, decodeType: AppInitialize.self) { result in
+                    switch result {
+                    case .success(let response):
+                        AppSettings.shared.setPointPerClick(point: response.pointPerClick)
+                        done(nil)
+                    case .failure(let error):
+                        print("error: \(error)")
+                        done(error)
+                    }
+                }
+            },
+            
+            { [weak self] done in
+                withAnimation(.spring(response: 0.7, dampingFraction: 0.6)) {
+                    self?.isLogoAnimationOn.toggle()
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.35) {
+                    withAnimation {
+                        self?.showSplashView.toggle()
+                        done(nil)
+                    }
+                }
+            }
+        ], result: { error in
+            print("error: \(error)")
+        })
+    }
 }

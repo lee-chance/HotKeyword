@@ -6,7 +6,17 @@
 //
 
 import Foundation
+import CoreGraphics
 
 final class AppSettings: ObservableObject {
-    @Published var searchEngine: SearchEngine = .google
+    static let shared = AppSettings()
+    private init() {}
+    
+    private(set) var searchEngine: SearchEngine = .google
+    
+    private(set) var pointPerClick: CGFloat = 0
+    
+    func setPointPerClick(point: CGFloat) {
+        pointPerClick = point
+    }
 }

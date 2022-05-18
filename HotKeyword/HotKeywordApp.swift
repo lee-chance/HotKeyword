@@ -10,7 +10,7 @@ import Firebase
 
 @main
 struct HotKeywordApp: App {
-    @StateObject var settings = AppSettings()
+    @StateObject var settings = AppSettings.shared
     
     init() {
         if FirebaseApp.app() == nil {

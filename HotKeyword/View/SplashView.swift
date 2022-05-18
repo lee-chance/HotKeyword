@@ -10,34 +10,18 @@ import SwiftUI
 struct SplashView: View {
     @ObservedObject var splash = SplashViewModel()
     
-    @State private var isLogoAnimationOn = false
-    @State private var showSplashView = true
-    
     var body: some View {
-        if showSplashView {
+        if splash.showSplashView {
             GeometryReader { geometry in
                 Color.purple
                 
                 Text("🔥")
                     .font(.system(size: 80))
-                    .position(x: geometry.size.width / 2, y: isLogoAnimationOn ? geometry.size.height / 2 : -geometry.size.height)
+                    .position(x: geometry.size.width / 2, y: splash.isLogoAnimationOn ? geometry.size.height / 2 : -geometry.size.height)
             }
             .ignoresSafeArea()
             .transition(.move(edge: .top))
             .zIndex(1)
-            .onAppear {
-                splash.doStep()
-                
-                withAnimation(.spring(response: 0.7, dampingFraction: 0.6)) {
-                    isLogoAnimationOn.toggle()
-                }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.35) {
-                    withAnimation {
-                        showSplashView.toggle()
-                    }
-                }
-            }
         } else {
             EmptyView()
         }
