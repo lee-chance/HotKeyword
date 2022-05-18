@@ -26,6 +26,8 @@ struct SplashView: View {
             .transition(.move(edge: .top))
             .zIndex(1)
             .onAppear {
+                splash.doStep()
+                
                 withAnimation(.spring(response: 0.7, dampingFraction: 0.6)) {
                     isLogoAnimationOn.toggle()
                 }

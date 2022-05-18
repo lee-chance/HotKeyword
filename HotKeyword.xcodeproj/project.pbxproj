@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E004C102834CE020070A90B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E004C0F2834CE020070A90B /* FirebaseService.swift */; };
 		2E01D150282DF107008EA239 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01D14F282DF107008EA239 /* RootView.swift */; };
 		2E01D152282DF110008EA239 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01D151282DF110008EA239 /* SplashView.swift */; };
 		2E01D154282E22DC008EA239 /* HotKeywordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01D153282E22DC008EA239 /* HotKeywordModel.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E004C0F2834CE020070A90B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		2E01D14F282DF107008EA239 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		2E01D151282DF110008EA239 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		2E01D153282E22DC008EA239 /* HotKeywordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordModel.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				2E084D8228290D8900A299E9 /* Extention */,
 				2E084D8128290D8200A299E9 /* App */,
 				2EAC97092833A65000CA6BB3 /* HotKeywordService.swift */,
+				2E004C0F2834CE020070A90B /* FirebaseService.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */,
 				2EAC9706283352E300CA6BB3 /* Service.swift in Sources */,
 				2E01D154282E22DC008EA239 /* HotKeywordModel.swift in Sources */,
+				2E004C102834CE020070A90B /* FirebaseService.swift in Sources */,
 				2EAC970328334F8200CA6BB3 /* SplashViewModel.swift in Sources */,
 				2E8C5C892822291900F38EE4 /* HotKeywordViewModel.swift in Sources */,
 				2E8C5C872822216B00F38EE4 /* HotKeyword.swift in Sources */,

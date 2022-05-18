@@ -20,7 +20,7 @@ final class ServiceProvider<S: Service> {
     
     init() { }
     
-    func get<T: Decodable>(service: S, callback: @escaping (Result<T, Error>) -> ()) {
+    func get<T: Decodable>(service: S, decodeType: T.Type, callback: @escaping (Result<T, Error>) -> ()) {
         session.dataTask(with: service.urlRequest) { data, response, error in
             // 1. Network Error Handling
             guard error == nil else {
@@ -29,7 +29,12 @@ final class ServiceProvider<S: Service> {
             }
             
             // 2. Server Error Handling
-            let statusCode = (response as? HTTPURLResponse)?.statusCode
+            let httpURLResponse = response as? HTTPURLResponse
+            let statusCode = httpURLResponse?.statusCode
+            if let url = httpURLResponse?.url {
+                print("Request URL: \(url)")
+            }
+            
             guard
                 let code = statusCode,
                 (200 ..< 300) ~= code
@@ -46,7 +51,7 @@ final class ServiceProvider<S: Service> {
             
             do {
                 // 4. Decoding Data
-                let decoded = try JSONDecoder().decode(T.self, from: data)
+                let decoded = try JSONDecoder().decode(decodeType, from: data)
                 callback(.success(decoded))
             } catch {
                 // 5. Decoding Error Handling
@@ -61,10 +66,15 @@ final class ServiceProvider<S: Service> {
         .resume()
     }
     
-    func get<T: Decodable>(service: S) -> AnyPublisher<T, Error> {
+    func get<T: Decodable>(service: S, decodeType: T.Type) -> AnyPublisher<T, Error> {
         session.dataTaskPublisher(for: service.urlRequest)
             .tryMap { data, response in
-                let statusCode = (response as? HTTPURLResponse)?.statusCode
+                let httpURLResponse = response as? HTTPURLResponse
+                let statusCode = httpURLResponse?.statusCode
+                if let url = httpURLResponse?.url {
+                    print("Request URL: \(url)")
+                }
+                
                 guard
                     let code = statusCode,
                     (200 ..< 300) ~= code
@@ -74,15 +84,20 @@ final class ServiceProvider<S: Service> {
                 
                 return data
             }
-            .decode(type: T.self, decoder: JSONDecoder())
+            .decode(type: decodeType, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
     
     @available(iOS 15.0, *)
-    func get<T: Decodable>(service: S) async throws -> T {
+    func get<T: Decodable>(service: S, decodeType: T.Type) async throws -> T {
         let result: (data: Data, response: URLResponse) = try await session.data(for: service.urlRequest)
         
-        let statusCode = (result.response as? HTTPURLResponse)?.statusCode
+        let httpURLResponse = result.response as? HTTPURLResponse
+        let statusCode = httpURLResponse?.statusCode
+        if let url = httpURLResponse?.url {
+            print("Request URL: \(url)")
+        }
+        
         guard
             let code = statusCode,
             (200 ..< 300) ~= code
@@ -90,7 +105,7 @@ final class ServiceProvider<S: Service> {
             throw NetworkError.serverError(statusCode: statusCode)
         }
         
-        return try JSONDecoder().decode(T.self, from: result.data)
+        return try JSONDecoder().decode(decodeType, from: result.data)
     }
     
 //    func load(service: T, completion: @escaping (Result<Data>) -> Void) {
