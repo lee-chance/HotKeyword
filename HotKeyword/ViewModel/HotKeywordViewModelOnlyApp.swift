@@ -58,16 +58,17 @@ extension HotKeywordViewModel {
     
     private func addCountInternalKeyword(keywords: InternalKeywords?, keyword: String) {
         let updatedKeyword: InternalKeywordValue
+        let pointPerClick = AppSettings.shared.pointPerClick
         
         if let keywords = keywords {
             if keywords.keys.contains(keyword) {
                 let point = keywords[keyword]!.point
-                updatedKeyword = InternalKeywordValue(point: point + 0.1, updatedAt: Timestamp().dateValue())
+                updatedKeyword = InternalKeywordValue(point: point + pointPerClick, updatedAt: Timestamp().dateValue())
             } else {
-                updatedKeyword = InternalKeywordValue(point: 0.1, updatedAt: Timestamp().dateValue())
+                updatedKeyword = InternalKeywordValue(point: pointPerClick, updatedAt: Timestamp().dateValue())
             }
         } else {
-            updatedKeyword = InternalKeywordValue(point: 0.1, updatedAt: Timestamp().dateValue())
+            updatedKeyword = InternalKeywordValue(point: pointPerClick, updatedAt: Timestamp().dateValue())
         }
         
         do {

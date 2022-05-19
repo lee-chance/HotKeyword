@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 enum NetworkError: Error {
+    case connectionError(Error)
     case serverError(statusCode: Int?)
     case noDataReceived
     case decodingError(DecodingError)
@@ -24,7 +25,7 @@ final class ServiceProvider<S: Service> {
         session.dataTask(with: service.urlRequest) { data, response, error in
             // 1. Network Error Handling
             guard error == nil else {
-                callback(.failure(error!))
+                callback(.failure(NetworkError.connectionError(error!)))
                 return
             }
             
@@ -84,7 +85,17 @@ final class ServiceProvider<S: Service> {
                 
                 return data
             }
+            .mapError { error in
+                NetworkError.connectionError(error)
+            }
             .decode(type: decodeType, decoder: JSONDecoder())
+            .mapError { error in
+                if let decodingError = error as? DecodingError {
+                    return NetworkError.decodingError(decodingError)
+                } else {
+                    return NetworkError.unknowError(error)
+                }
+            }
             .eraseToAnyPublisher()
     }
     

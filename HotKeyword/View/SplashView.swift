@@ -22,6 +22,9 @@ struct SplashView: View {
             .ignoresSafeArea()
             .transition(.move(edge: .top))
             .zIndex(1)
+            .onDisappear {
+                splash.invalidate()
+            }
         } else {
             EmptyView()
         }

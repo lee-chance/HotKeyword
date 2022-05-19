@@ -7,33 +7,40 @@
 
 import Foundation
 
-class Async {
-    typealias Task = (@escaping (Error?) -> Void) -> Void
+struct Async {
+    typealias TaskResultAction = (TaskResult) -> Void
+    typealias Task = (@escaping TaskResultAction) -> Void
     
-    static func serial(tasks: [Task], result: @escaping (Error?) -> Void) {
+    enum TaskResult {
+        case success
+        case failure(Error)
+    }
+    
+    static func serial(tasks: [Task], result: @escaping TaskResultAction) {
         serialHelper(tasks: tasks, result: result)
     }
     
-    private static func serialHelper(tasks: [Task], result: @escaping (Error?) -> Void) {
+    private static func serialHelper(tasks: [Task], result: @escaping TaskResultAction) {
         var tasks = tasks
         
         if tasks.count > 0 {
             let nextTask = tasks.removeFirst()
+            
             DispatchQueue.main.async {
-                nextTask { error in
-                    if error == nil {
+                nextTask { taskResult in
+                    switch taskResult {
+                    case .success:
                         serialHelper(tasks: tasks, result: result)
-                    } else  {
-                        result(error)
+                    case .failure:
+                        result(taskResult)
                     }
                 }
             }
         }
         else {
             DispatchQueue.main.async {
-                result(nil)
+                result(.success)
             }
         }
     }
-    
 }

@@ -11,6 +11,7 @@ import Combine
 final class SplashViewModel: ObservableObject {
     private var tasks = [() -> Void]()
     private let provider = ServiceProvider<FirebaseService>()
+    private var cancellables = Set<AnyCancellable>()
     
     @Published var isLogoAnimationOn = false
     @Published var showSplashView = true
@@ -19,35 +20,48 @@ final class SplashViewModel: ObservableObject {
         initiaize()
     }
     
+    func invalidate() {
+        cancellables.forEach { $0.cancel() }
+        cancellables = []
+    }
+    
     private func initiaize() {
         Async.serial(tasks: [
-            { [weak self] done in
-                self?.provider.get(service: .initialize, decodeType: AppInitialize.self) { result in
-                    switch result {
-                    case .success(let response):
-                        AppSettings.shared.setPointPerClick(point: response.pointPerClick)
-                        done(nil)
-                    case .failure(let error):
-                        print("error: \(error)")
-                        done(error)
-                    }
-                }
-            },
-            
-            { [weak self] done in
-                withAnimation(.spring(response: 0.7, dampingFraction: 0.6)) {
-                    self?.isLogoAnimationOn.toggle()
-                }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.35) {
-                    withAnimation {
-                        self?.showSplashView.toggle()
-                        done(nil)
-                    }
-                }
+            { [weak self] in self?.appInitialize(completion: $0) }
+        ], result: { [weak self] result in
+            switch result {
+            case .success:
+                self?.animate()
+            case .failure(let error):
+                print("error: \(error)")
             }
-        ], result: { error in
-            print("error: \(error)")
         })
+    }
+    
+    private func appInitialize(completion: @escaping (Async.TaskResult) -> Void) {
+        provider.get(service: .initialize, decodeType: AppInitialize.self)
+            .sink(receiveCompletion: { result in
+                switch result {
+                case .finished:
+                    completion(.success)
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }, receiveValue: { response in
+                AppSettings.shared.setPointPerClick(point: response.pointPerClick)
+            })
+            .store(in: &cancellables)
+    }
+    
+    private func animate() {
+        withAnimation(.spring(response: 0.7, dampingFraction: 0.6)) {
+            isLogoAnimationOn.toggle()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.35) { [weak self] in
+            withAnimation {
+                self?.showSplashView.toggle()
+            }
+        }
     }
 }
