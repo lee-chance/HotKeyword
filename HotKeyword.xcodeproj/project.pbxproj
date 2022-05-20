@@ -26,6 +26,10 @@
 		2E08DC93283776B6009092BC /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC92283776B6009092BC /* Logger.swift */; };
 		2E08DC95283782C3009092BC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC94283782C3009092BC /* SettingView.swift */; };
 		2E08DC97283788F6009092BC /* HotKeywordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC96283788F6009092BC /* HotKeywordInfo.swift */; };
+		2E08DC9D28379439009092BC /* KeywordWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC99283793C4009092BC /* KeywordWidgetEntryView.swift */; };
+		2E08DC9E2837943C009092BC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC9B28379419009092BC /* Entry.swift */; };
+		2E08DCA028379515009092BC /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC9F28379515009092BC /* Provider.swift */; };
+		2E08DCA228379C92009092BC /* KeywordWidgetMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DCA128379C92009092BC /* KeywordWidgetMain.swift */; };
 		2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E2EB51B282C1971001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E394D73282A3A8100445D5C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D72282A3A8100445D5C /* FirebaseAnalytics */; };
@@ -99,6 +103,10 @@
 		2E08DC92283776B6009092BC /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		2E08DC94283782C3009092BC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		2E08DC96283788F6009092BC /* HotKeywordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordInfo.swift; sourceTree = "<group>"; };
+		2E08DC99283793C4009092BC /* KeywordWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordWidgetEntryView.swift; sourceTree = "<group>"; };
+		2E08DC9B28379419009092BC /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		2E08DC9F28379515009092BC /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		2E08DCA128379C92009092BC /* KeywordWidgetMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordWidgetMain.swift; sourceTree = "<group>"; };
 		2E2EB519282C1901001F5CBB /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
 		2E8C5C5E282220A900F38EE4 /* HotKeyword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordApp.swift; sourceTree = "<group>"; };
@@ -295,7 +303,11 @@
 		2E8C5C792822211400F38EE4 /* KeywordWidget */ = {
 			isa = PBXGroup;
 			children = (
+				2E08DCA128379C92009092BC /* KeywordWidgetMain.swift */,
 				2E8C5C7A2822211400F38EE4 /* KeywordWidget.swift */,
+				2E08DC99283793C4009092BC /* KeywordWidgetEntryView.swift */,
+				2E08DC9B28379419009092BC /* Entry.swift */,
+				2E08DC9F28379515009092BC /* Provider.swift */,
 				2E8C5C7C2822211500F38EE4 /* Assets.xcassets */,
 				2E8C5C7E2822211500F38EE4 /* Info.plist */,
 			);
@@ -463,8 +475,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E08DCA228379C92009092BC /* KeywordWidgetMain.swift in Sources */,
+				2E08DC9E2837943C009092BC /* Entry.swift in Sources */,
+				2E08DC9D28379439009092BC /* KeywordWidgetEntryView.swift in Sources */,
 				2E8C5C902822466C00F38EE4 /* HotKeywordDefine.swift in Sources */,
 				2E8C5C8B282229AD00F38EE4 /* HotKeyword.swift in Sources */,
+				2E08DCA028379515009092BC /* Provider.swift in Sources */,
 				2E2EB51B282C1971001F5CBB /* SharedView.swift in Sources */,
 				2E01D155282E2332008EA239 /* HotKeywordModel.swift in Sources */,
 				2E8C5C7B2822211400F38EE4 /* KeywordWidget.swift in Sources */,
