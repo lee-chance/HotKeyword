@@ -32,9 +32,11 @@ final class ServiceProvider<S: Service> {
             // 2. Server Error Handling
             let httpURLResponse = response as? HTTPURLResponse
             let statusCode = httpURLResponse?.statusCode
+            #if DEBUG
             if let url = httpURLResponse?.url {
                 print("Request URL: \(url)")
             }
+            #endif
             
             guard
                 let code = statusCode,
@@ -72,9 +74,11 @@ final class ServiceProvider<S: Service> {
             .tryMap { data, response in
                 let httpURLResponse = response as? HTTPURLResponse
                 let statusCode = httpURLResponse?.statusCode
+                #if DEBUG
                 if let url = httpURLResponse?.url {
                     print("Request URL: \(url)")
                 }
+                #endif
                 
                 guard
                     let code = statusCode,
@@ -105,9 +109,11 @@ final class ServiceProvider<S: Service> {
         
         let httpURLResponse = result.response as? HTTPURLResponse
         let statusCode = httpURLResponse?.statusCode
+        #if DEBUG
         if let url = httpURLResponse?.url {
             print("Request URL: \(url)")
         }
+        #endif
         
         guard
             let code = statusCode,

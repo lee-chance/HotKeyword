@@ -74,7 +74,7 @@ final class SplashViewModel: ObservableObject {
             case .failure(let error):
                 switch error {
                 case SplashError.needUpdate: print("앱스토어로 이동~") // TODO: 앱스토어로 이동~
-                default: print("error: \(error)")
+                default: Logger.error("error: \(error)")
                 }
             }
         })

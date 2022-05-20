@@ -23,6 +23,7 @@
 		2E08DC8D28376965009092BC /* DialogPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC8C28376965009092BC /* DialogPresentation.swift */; };
 		2E08DC8F2837698F009092BC /* DialogContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC8E2837698F009092BC /* DialogContent.swift */; };
 		2E08DC9128376A40009092BC /* DialogStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC9028376A40009092BC /* DialogStruct.swift */; };
+		2E08DC93283776B6009092BC /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC92283776B6009092BC /* Logger.swift */; };
 		2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E2EB51B282C1971001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E394D73282A3A8100445D5C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D72282A3A8100445D5C /* FirebaseAnalytics */; };
@@ -93,6 +94,7 @@
 		2E08DC8C28376965009092BC /* DialogPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogPresentation.swift; sourceTree = "<group>"; };
 		2E08DC8E2837698F009092BC /* DialogContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogContent.swift; sourceTree = "<group>"; };
 		2E08DC9028376A40009092BC /* DialogStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogStruct.swift; sourceTree = "<group>"; };
+		2E08DC92283776B6009092BC /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		2E2EB519282C1901001F5CBB /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
 		2E8C5C5E282220A900F38EE4 /* HotKeyword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordApp.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				2E004C132834F7180070A90B /* Async.swift */,
 				2E08DC89283764AD009092BC /* Version.swift */,
+				2E08DC92283776B6009092BC /* Logger.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				2E8C5C8D2822414600F38EE4 /* AppSettings.swift in Sources */,
 				2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */,
 				2E004C122834EEF30070A90B /* AppInitialize.swift in Sources */,
+				2E08DC93283776B6009092BC /* Logger.swift in Sources */,
 				2E8C5C8F2822450600F38EE4 /* HotKeywordDefine.swift in Sources */,
 				2E08DC8F2837698F009092BC /* DialogContent.swift in Sources */,
 				2E8C5C62282220A900F38EE4 /* HotKeywordApp.swift in Sources */,

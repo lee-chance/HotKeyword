@@ -21,11 +21,11 @@ extension HotKeywordViewModel {
                 if opened {
                     self?.addCount(keyword: keyword)
                 } else {
-                    print("오류 발생: \(searchingURLString)")
+                    Logger.error("오류 발생: \(searchingURLString)")
                 }
             }
         } else {
-            print("오류 발생: \(searchingURLString)")
+            Logger.error("오류 발생: \(searchingURLString)")
         }
     }
     
@@ -39,7 +39,7 @@ extension HotKeywordViewModel {
         db.collection("internalKeywords")
             .getDocuments { querySnapshot, err in
                 if let err = err {
-                    print("Error getting documents: \(err)")
+                    Logger.error("Error getting documents: \(err)")
                 } else {
                     var tempKeywords = InternalKeywords()
                     
@@ -74,7 +74,7 @@ extension HotKeywordViewModel {
         do {
             try db.collection("internalKeywords").document(keyword).setData(from: updatedKeyword)
         } catch let error {
-            print("Error writing city to Firestore: \(error)")
+            Logger.error("Error writing to Firestore: \(error)")
         }
     }
 }

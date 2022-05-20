@@ -20,7 +20,6 @@ struct Provider: TimelineProvider {
         db.collection("keywords").document("finalKeywords")
             .getDocument { documentSnapshot, error in
                 guard let document = documentSnapshot else {
-                    print("Error fetching document: \(error!)")
                     return
                 }
                 
@@ -28,7 +27,6 @@ struct Provider: TimelineProvider {
                     let lastUpdatedAt = document.get("timestamp") as? Timestamp,
                     let keywords = document.get("keywords") as? [String]
                 else {
-                    print("Document data was empty.")
                     return
                 }
                 

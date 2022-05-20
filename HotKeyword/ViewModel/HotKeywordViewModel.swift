@@ -36,7 +36,7 @@ final class HotKeywordViewModel: ObservableObject {
         db.collection("keywords").document("finalKeywords")
             .addSnapshotListener { [weak self] documentSnapshot, error in
                 guard let document = documentSnapshot else {
-                    print("Error fetching document: \(error!)")
+                    Logger.error("Error fetching document: \(error!)")
                     return
                 }
                 
@@ -44,7 +44,7 @@ final class HotKeywordViewModel: ObservableObject {
                     let lastUpdatedAt = document.get("timestamp") as? Timestamp,
                     let keywords = document.get("keywords") as? [String]
                 else {
-                    print("Document data was empty.")
+                    Logger.error("Document data was empty.")
                     return
                 }
                 
