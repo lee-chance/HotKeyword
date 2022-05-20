@@ -29,7 +29,7 @@ final class SplashViewModel: ObservableObject {
                 self?.provider.get(service: .versionCheck, decodeType: AppInitialize.VersionCheck.self) { result in
                     switch result {
                     case .success(let response):
-                        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
+                        guard let version = HotKeywordInfo.appVersion else {
                             done(.failure(SplashError.unknown))
                             return
                         }
