@@ -19,6 +19,10 @@
 		2E01D15B282E514F008EA239 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2E01D15A282E514F008EA239 /* FirebaseFirestoreSwift */; };
 		2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */; };
 		2E084D8028290D7900A299E9 /* HotKeywordColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */; };
+		2E08DC8A283764AD009092BC /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC89283764AD009092BC /* Version.swift */; };
+		2E08DC8D28376965009092BC /* DialogPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC8C28376965009092BC /* DialogPresentation.swift */; };
+		2E08DC8F2837698F009092BC /* DialogContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC8E2837698F009092BC /* DialogContent.swift */; };
+		2E08DC9128376A40009092BC /* DialogStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC9028376A40009092BC /* DialogStruct.swift */; };
 		2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E2EB51B282C1971001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E394D73282A3A8100445D5C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D72282A3A8100445D5C /* FirebaseAnalytics */; };
@@ -85,6 +89,10 @@
 		2E01D17B282E5357008EA239 /* HotKeyword.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotKeyword.entitlements; sourceTree = "<group>"; };
 		2E01D17C282E5371008EA239 /* KeywordWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeywordWidgetExtension.entitlements; sourceTree = "<group>"; };
 		2E084D7D28290D6D00A299E9 /* HotKeywordColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordColor.swift; sourceTree = "<group>"; };
+		2E08DC89283764AD009092BC /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		2E08DC8C28376965009092BC /* DialogPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogPresentation.swift; sourceTree = "<group>"; };
+		2E08DC8E2837698F009092BC /* DialogContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogContent.swift; sourceTree = "<group>"; };
+		2E08DC9028376A40009092BC /* DialogStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogStruct.swift; sourceTree = "<group>"; };
 		2E2EB519282C1901001F5CBB /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
 		2E8C5C5E282220A900F38EE4 /* HotKeyword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordApp.swift; sourceTree = "<group>"; };
@@ -143,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				2E004C132834F7180070A90B /* Async.swift */,
+				2E08DC89283764AD009092BC /* Version.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -209,6 +218,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2E08DC8B28376954009092BC /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				2E08DC8C28376965009092BC /* DialogPresentation.swift */,
+				2E08DC8E2837698F009092BC /* DialogContent.swift */,
+				2E08DC9028376A40009092BC /* DialogStruct.swift */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		2E8C5C55282220A900F38EE4 = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +251,7 @@
 		2E8C5C60282220A900F38EE4 /* HotKeyword */ = {
 			isa = PBXGroup;
 			children = (
+				2E08DC8B28376954009092BC /* Dialog */,
 				2EAC970128334EA600CA6BB3 /* Info.plist */,
 				2E01D17B282E5357008EA239 /* HotKeyword.entitlements */,
 				2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */,
@@ -404,12 +424,15 @@
 				2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */,
 				2EAC9706283352E300CA6BB3 /* Service.swift in Sources */,
 				2E01D154282E22DC008EA239 /* HotKeywordModel.swift in Sources */,
+				2E08DC8A283764AD009092BC /* Version.swift in Sources */,
 				2E004C102834CE020070A90B /* FirebaseService.swift in Sources */,
 				2EAC970328334F8200CA6BB3 /* SplashViewModel.swift in Sources */,
 				2E8C5C892822291900F38EE4 /* HotKeywordViewModel.swift in Sources */,
 				2E8C5C872822216B00F38EE4 /* HotKeyword.swift in Sources */,
 				2E004C142834F7180070A90B /* Async.swift in Sources */,
+				2E08DC9128376A40009092BC /* DialogStruct.swift in Sources */,
 				2E8C5C64282220A900F38EE4 /* ContentView.swift in Sources */,
+				2E08DC8D28376965009092BC /* DialogPresentation.swift in Sources */,
 				2E01D152282DF110008EA239 /* SplashView.swift in Sources */,
 				2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */,
 				2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */,
@@ -418,6 +441,7 @@
 				2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */,
 				2E004C122834EEF30070A90B /* AppInitialize.swift in Sources */,
 				2E8C5C8F2822450600F38EE4 /* HotKeywordDefine.swift in Sources */,
+				2E08DC8F2837698F009092BC /* DialogContent.swift in Sources */,
 				2E8C5C62282220A900F38EE4 /* HotKeywordApp.swift in Sources */,
 				2E01D150282DF107008EA239 /* RootView.swift in Sources */,
 			);

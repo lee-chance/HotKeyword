@@ -11,6 +11,7 @@ import Firebase
 @main
 struct HotKeywordApp: App {
     @StateObject var settings = AppSettings.shared
+    @StateObject var dialog = DialogPresentation.shared
     
     init() {
         if FirebaseApp.app() == nil {
@@ -22,6 +23,8 @@ struct HotKeywordApp: App {
         WindowGroup {
             RootView()
                 .environmentObject(settings)
+                .environmentObject(dialog)
+                .customDialog(presentationManager: dialog)
         }
     }
 }

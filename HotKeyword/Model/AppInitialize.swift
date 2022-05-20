@@ -8,6 +8,13 @@
 import Foundation
 import CoreGraphics
 
-struct AppInitialize: Codable {
-    var pointPerClick: CGFloat
+struct AppInitialize {
+    struct Initialize: Codable {
+        let pointPerClick: CGFloat
+    }
+    
+    struct VersionCheck: Codable {
+        let requiredVersion: String
+        let optionalVersion: String
+    }
 }
