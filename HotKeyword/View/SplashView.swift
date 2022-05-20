@@ -13,7 +13,8 @@ struct SplashView: View {
     var body: some View {
         if splash.showSplashView {
             GeometryReader { geometry in
-                Color.purple
+                Image("backgroundImage")
+                    .resizable()
                 
                 Text("🔥")
                     .font(.system(size: 80))

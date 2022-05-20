@@ -8,7 +8,7 @@
 import SwiftUI
 import WidgetKit
 
-struct KeywordWidgetEntryView : View {
+struct KeywordWidgetEntryView: View {
     @Environment(\.widgetFamily) var family: WidgetFamily
     let entry: Provider.Entry
     
@@ -23,60 +23,62 @@ struct KeywordWidgetEntryView : View {
     }
 }
 
-fileprivate struct SmallView: View {
-    let entry: Provider.Entry
-    
-    var body: some View {
-        VStack {
-            VStack(alignment: .leading) {
-                Circle()
-                    .frame(width: 36, height: 36)
-                    .overlay(
-                        Text("🔥")
-                    )
-                
-                Text(entry.updatedAt, style: .time)
-                    .font(.footnote)
-                
-                Text("실시간 인기 검색어")
-                    .font(.callout)
-            }
-            .frame(maxWidth: .infinity)
-            
-            let keyword = entry.keywords.first!
-            Text(keyword.text)
-                .fontWeight(.bold)
-                .padding(.vertical, 4)
+extension KeywordWidgetEntryView {
+    struct SmallView: View {
+        let entry: Provider.Entry
+        
+        var body: some View {
+            VStack {
+                VStack(alignment: .leading) {
+                    Circle()
+                        .frame(width: 36, height: 36)
+                        .overlay(
+                            Text("🔥")
+                        )
+                    
+                    Text(entry.updatedAt, style: .time)
+                        .font(.footnote)
+                    
+                    Text("실시간 인기 검색어")
+                        .font(.callout)
+                }
                 .frame(maxWidth: .infinity)
-                .background(
-                    Color.gold
-                        .cornerRadius(8)
-                )
+                
+                let keyword = entry.keywords.first!
+                Text(keyword.text)
+                    .fontWeight(.bold)
+                    .padding(.vertical, 4)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        Color.gold
+                            .cornerRadius(8)
+                    )
+            }
+            .padding(.horizontal, 8)
         }
-        .padding(.horizontal, 8)
     }
-}
 
-fileprivate struct MediumView: View {
-    let entry: Provider.Entry
-    
-    var body: some View {
-        EmptyView()
+    struct MediumView: View {
+        let entry: Provider.Entry
+        
+        var body: some View {
+            EmptyView()
+        }
     }
-}
 
-fileprivate struct LargeView: View {
-    let entry: Provider.Entry
-    
-    var body: some View {
-        EmptyView()
+    struct LargeView: View {
+        let entry: Provider.Entry
+        
+        var body: some View {
+            EmptyView()
+        }
     }
-}
 
-fileprivate struct ExtraLargeView: View {
-    let entry: Provider.Entry
-    
-    var body: some View {
-        EmptyView()
+    struct ExtraLargeView: View {
+        let entry: Provider.Entry
+        
+        var body: some View {
+            EmptyView()
+        }
     }
 }
