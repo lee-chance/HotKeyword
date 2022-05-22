@@ -5,13 +5,22 @@
 //  Created by 이창수 on 2022/05/04.
 //
 
-import Foundation
+import SwiftUI
 
 struct HotKeyword: Identifiable, Codable {
     let rank: Int
     let text: String
     
     var id: String { text }
+    
+    var backgroundColor: Color {
+        switch rank {
+        case 1: return .gold
+        case 2: return .silver
+        case 3: return .bronze
+        default: return .gray
+        }
+    }
 }
 
 struct InternalKeywordValue: Codable {

@@ -8,32 +8,28 @@
 import WidgetKit
 import SwiftUI
 
-struct KeywordWidget: Widget {
-    let kind: String = "com.cslee.HotKeyword.KeywordWidget"
+struct SingleKeywordWidget: Widget {
+    let kind: String = "com.cslee.HotKeyword.SingleKeywordWidget"
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            KeywordWidgetEntryView(entry: entry)
+            SingleKeywordWidgetView(entry: entry)
         }
         .configurationDisplayName("🔥 실시간 인기 검색어")
-        .description("This is an example widget.")
+        .description("This is an example widget.") // FIXME: 여기 수정하기!!
+        .supportedFamilies([.systemSmall])
     }
 }
 
-struct KeywordWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            KeywordWidgetEntryView(entry: SimpleEntry(date: Date(), keywords: HotKeyword.dummy(), updatedAt: Date()))
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-            
-//            KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
-//                .previewContext(WidgetPreviewContext(family: .systemMedium))
-            
-//            KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
-//                .previewContext(WidgetPreviewContext(family: .systemLarge))
-            
-//            KeywordWidgetEntryView(entry: SimpleEntry(date: Date()))
-//                .previewContext(WidgetPreviewContext(family: .systemExtraLarge))
+struct MultipleKeywordWidget: Widget {
+    let kind: String = "com.cslee.HotKeyword.MultipleKeywordWidget"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            MultipleKeywordWidgetView(entry: entry)
         }
+        .configurationDisplayName("🔥 실시간 인기 검색어")
+        .description("현재 인기 검색어를 빠르게 볼 수 있습니다!")
+        .supportedFamilies([.systemSmall])
     }
 }

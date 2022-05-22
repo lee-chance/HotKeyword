@@ -10,7 +10,7 @@ import Firebase
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), keywords: HotKeyword.dummy(), updatedAt: Date())
+        SimpleEntry(date: Date(), keywords: HotKeyword.dummy(), updatedAt: Date(), context: context)
     }
     
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -31,14 +31,14 @@ struct Provider: TimelineProvider {
                 
                 let hotKeywords = keywords.indices.map { HotKeyword(rank: $0 + 1, text: keywords[$0]) }
                 
-                let entry = SimpleEntry(date: Date() + 1, keywords: hotKeywords, updatedAt: lastUpdatedAt.dateValue())
+                let entry = SimpleEntry(date: Date() + 1, keywords: hotKeywords, updatedAt: lastUpdatedAt.dateValue(), context: context)
                 completion(entry)
             }
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         getSnapshot(in: context) { entry in
-            let defaultEntry = SimpleEntry(date: entry.date - 1, keywords: entry.keywords, updatedAt: entry.updatedAt)
+            let defaultEntry = SimpleEntry(date: entry.date - 1, keywords: entry.keywords, updatedAt: entry.updatedAt, context: entry.context)
             
             let timeline = Timeline(entries: [defaultEntry, entry], policy: .atEnd)
             completion(timeline)

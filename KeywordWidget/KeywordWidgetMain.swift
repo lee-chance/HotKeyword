@@ -19,6 +19,7 @@ struct KeywordWidgets: WidgetBundle {
     
     @WidgetBundleBuilder
     var body: some Widget {
-        KeywordWidget()
+//        SingleKeywordWidget()
+        MultipleKeywordWidget()
     }
 }
