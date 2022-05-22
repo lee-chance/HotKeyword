@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import GoogleMobileAds
 
 @main
 struct HotKeywordApp: App {
@@ -17,6 +18,7 @@ struct HotKeywordApp: App {
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
     }
     
     var body: some Scene {

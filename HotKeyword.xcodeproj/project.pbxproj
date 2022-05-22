@@ -37,6 +37,8 @@
 		2E394D79282A3A8100445D5C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D78282A3A8100445D5C /* FirebaseFirestore */; };
 		2E394D7B282A3A8100445D5C /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D7A282A3A8100445D5C /* FirebaseFirestoreCombine-Community */; };
 		2E394D7F282A423200445D5C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D7E282A423200445D5C /* FirebaseFirestore */; };
+		2E4C4EF0283A566A000D3C47 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 2E4C4EEF283A566A000D3C47 /* GoogleMobileAds */; };
+		2E4C4EF2283A57E2000D3C47 /* GoogleADBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4C4EF1283A57E2000D3C47 /* GoogleADBannerView.swift */; };
 		2E865B51282FA35E003F6119 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C9C282253E700F38EE4 /* GoogleService-Info.plist */; };
 		2E8C5C62282220A900F38EE4 /* HotKeywordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */; };
 		2E8C5C64282220A900F38EE4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C63282220A900F38EE4 /* MainView.swift */; };
@@ -111,6 +113,7 @@
 		2E08DC9F28379515009092BC /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		2E08DCA128379C92009092BC /* KeywordWidgetMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordWidgetMain.swift; sourceTree = "<group>"; };
 		2E2EB519282C1901001F5CBB /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
+		2E4C4EF1283A57E2000D3C47 /* GoogleADBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleADBannerView.swift; sourceTree = "<group>"; };
 		2E8C5C5E282220A900F38EE4 /* HotKeyword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordApp.swift; sourceTree = "<group>"; };
 		2E8C5C63282220A900F38EE4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 			files = (
 				2E394D7B282A3A8100445D5C /* FirebaseFirestoreCombine-Community in Frameworks */,
 				2E394D77282A3A8100445D5C /* FirebaseCrashlytics in Frameworks */,
+				2E4C4EF0283A566A000D3C47 /* GoogleMobileAds in Frameworks */,
 				2E394D73282A3A8100445D5C /* FirebaseAnalytics in Frameworks */,
 				2E394D79282A3A8100445D5C /* FirebaseFirestore in Frameworks */,
 			);
@@ -235,6 +239,7 @@
 				2E8C5C63282220A900F38EE4 /* MainView.swift */,
 				2E2EB519282C1901001F5CBB /* SharedView.swift */,
 				2E08DC94283782C3009092BC /* SettingView.swift */,
+				2E4C4EF1283A57E2000D3C47 /* GoogleADBannerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				2E394D76282A3A8100445D5C /* FirebaseCrashlytics */,
 				2E394D78282A3A8100445D5C /* FirebaseFirestore */,
 				2E394D7A282A3A8100445D5C /* FirebaseFirestoreCombine-Community */,
+				2E4C4EEF283A566A000D3C47 /* GoogleMobileAds */,
 			);
 			productName = HotKeyword;
 			productReference = 2E8C5C5E282220A900F38EE4 /* HotKeyword.app */;
@@ -416,6 +422,7 @@
 			mainGroup = 2E8C5C55282220A900F38EE4;
 			packageReferences = (
 				2E394D71282A3A8100445D5C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2E4C4EEE283A566A000D3C47 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 2E8C5C5F282220A900F38EE4 /* Products */;
 			projectDirPath = "";
@@ -457,6 +464,7 @@
 			files = (
 				2E8C5C9228224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift in Sources */,
 				2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */,
+				2E4C4EF2283A57E2000D3C47 /* GoogleADBannerView.swift in Sources */,
 				2EAC9706283352E300CA6BB3 /* Service.swift in Sources */,
 				2E01D154282E22DC008EA239 /* HotKeywordModel.swift in Sources */,
 				2E08DC8A283764AD009092BC /* Version.swift in Sources */,
@@ -643,10 +651,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HotKeyword/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HOT;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -657,7 +665,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -675,10 +683,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HotKeyword/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HOT;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -689,7 +697,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -792,6 +800,14 @@
 				version = 9.0.0;
 			};
 		};
+		2E4C4EEE283A566A000D3C47 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = exactVersion;
+				version = 9.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -834,6 +850,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2E394D71282A3A8100445D5C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		2E4C4EEF283A566A000D3C47 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E4C4EEE283A566A000D3C47 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

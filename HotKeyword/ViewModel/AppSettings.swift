@@ -11,7 +11,7 @@ import CoreGraphics
 final class AppSettings: ObservableObject {
     static let shared = AppSettings()
     
-    private(set) var searchEngine: SearchEngine = .google
+    private(set) var searchEngine: SearchEngine = .naver
     
     private(set) var pointPerClick: CGFloat = 0
     
