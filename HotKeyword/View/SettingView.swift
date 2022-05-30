@@ -17,7 +17,7 @@ struct SettingView: View {
     var body: some View {
         List {
             if #available(iOS 15.0, *) {
-                Picker("검색엔진", selection: $selectedSearchEngine) {
+                Picker("\(selectedSearchEngine.kor)에서 검색하기", selection: $selectedSearchEngine) {
                     ForEach(SearchEngine.allCases) { engine in
                         Text(engine.kor)
                             .tag(engine)
@@ -46,7 +46,7 @@ struct SettingView: View {
                         }
                     }
                 } header: {
-                    Text("검색엔진")
+                    Text("어디서 검색할까요?")
                 }
             }
             

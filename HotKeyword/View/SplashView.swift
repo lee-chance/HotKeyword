@@ -10,8 +10,9 @@ import SwiftUI
 struct SplashView: View {
     @ObservedObject var splash = SplashViewModel()
     
+    @ViewBuilder
     var body: some View {
-        if splash.showSplashView {
+        if splash.showsSplashView {
             GeometryReader { geometry in
                 Image("backgroundImage")
                     .resizable()

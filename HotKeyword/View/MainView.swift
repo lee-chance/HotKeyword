@@ -13,7 +13,7 @@ struct MainView: View {
     
     @State private var showSettingView = false
     
-    private let bottomBannerHeight: CGFloat = 100
+    private let bottomBannerHeight: CGFloat = Screen.height > 600 ? 100 : 50
     
     var body: some View {
         NavigationView {
@@ -32,10 +32,7 @@ struct MainView: View {
                             }
                         }
                     } header: {
-                        Text("\(viewModel.updatedDate.toString(format: "HH시 mm분 ss초"))")
-                            .font(Font.caption)
-                            .foregroundColor(.gray)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
+                        UpdatedDateText(updatedDate: viewModel.updatedDate)
                             .animation(nil)
                     }
                 }
@@ -45,6 +42,9 @@ struct MainView: View {
                 
                 GoogleADBannerView(unitID: GoogleADKey.mainBanner.keyValue)
                     .frame(height: bottomBannerHeight)
+                    .onAppear {
+                        print("cslog height: \(Screen.height)")
+                    }
             }
             .navigationBarTitle("🔥 실시간 인기 검색어")
             .toolbar {

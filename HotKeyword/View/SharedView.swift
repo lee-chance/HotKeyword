@@ -28,8 +28,13 @@ struct KeywordRow: View {
     }
 }
 
-struct SharedView_Previews: PreviewProvider {
-    static var previews: some View {
-        KeywordRow(keyword: HotKeyword.dummy().first!)
+struct UpdatedDateText: View {
+    let updatedDate: Date
+    
+    var body: some View {
+        Text("\(updatedDate.toString(format: "HH시 mm분 ss초"))")
+            .font(Font.caption)
+            .foregroundColor(.gray)
+            .frame(maxWidth: .infinity, alignment: .trailing)
     }
 }

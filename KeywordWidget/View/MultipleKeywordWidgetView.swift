@@ -59,6 +59,8 @@ extension MultipleKeywordWidgetView {
         
         var body: some View {
             VStack(spacing: 8) {
+                UpdatedDateText(updatedDate: entry.updatedAt)
+                
                 ForEach(entry.keywords.prefix(3)) { keyword in
                     HStack {
                         Text("\(keyword.rank)")
@@ -84,9 +86,6 @@ extension MultipleKeywordWidgetView {
                         )
                     }
                     .foregroundColor(.clear)
-                    .onTapGesture {
-                        
-                    }
                 }
             }
             .padding(8)

@@ -10,13 +10,13 @@ import SwiftUI
 
 struct SingleKeywordWidget: Widget {
     let kind: String = "com.cslee.HotKeyword.SingleKeywordWidget"
-    
+
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             SingleKeywordWidgetView(entry: entry)
         }
         .configurationDisplayName("🔥 실시간 인기 검색어")
-        .description("This is an example widget.") // FIXME: 여기 수정하기!!
+        .description("현재 인기 검색어를 빠르게 볼 수 있습니다!")
         .supportedFamilies([.systemSmall])
     }
 }

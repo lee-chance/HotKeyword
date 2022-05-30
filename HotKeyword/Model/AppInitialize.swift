@@ -14,7 +14,13 @@ struct AppInitialize {
     }
     
     struct VersionCheck: Codable {
-        let requiredVersion: String
-        let optionalVersion: String
+        let required: VersionCheckDetail
+        let optional: VersionCheckDetail
+    }
+    
+    struct VersionCheckDetail: Codable {
+        let version: String
+        let title: String
+        let message: String
     }
 }

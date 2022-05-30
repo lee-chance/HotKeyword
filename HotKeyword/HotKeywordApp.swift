@@ -18,6 +18,7 @@ struct HotKeywordApp: App {
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
         }
+        
         GADMobileAds.sharedInstance().start(completionHandler: nil)
     }
     

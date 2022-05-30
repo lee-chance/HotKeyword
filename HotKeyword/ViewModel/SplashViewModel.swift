@@ -17,7 +17,7 @@ final class SplashViewModel: ObservableObject {
     private let provider = ServiceProvider<FirebaseService>()
     
     @Published var isLogoAnimationOn = false
-    @Published var showSplashView = true
+    @Published var showsSplashView = true
     
     init() {
         initialize()
@@ -35,15 +35,18 @@ final class SplashViewModel: ObservableObject {
                         }
                         
                         let currentVersion = Version(string: version)
-                        let requiredVersion = Version(string: response.requiredVersion)
-                        let optionalVersion = Version(string: response.optionalVersion)
+                        let requiredVersion = Version(string: response.required.version)
+                        let optionalVersion = Version(string: response.optional.version)
                         
                         if currentVersion < requiredVersion {
+                            let dialog = DialogContent.requiredUpdateDialog(detail: response.required, action: { done(.failure(SplashError.needUpdate)) })
+                            
                             DispatchQueue.main.async {
-                                DialogPresentation.shared.show(.needUpdateDialog(action: { done(.failure(SplashError.needUpdate)) }))
+                                DialogPresentation.shared.show(dialog)
                             }
                         } else if currentVersion < optionalVersion {
-                            let dialog = DialogContent.suggestUpdateDialog(dismissAction: { done(.success) }, updateAction: { done(.failure(SplashError.needUpdate)) })
+                            let dialog = DialogContent.optionalUpdateDialog(detail: response.optional, dismissAction: { done(.success) }, updateAction: { done(.failure(SplashError.needUpdate)) })
+                            
                             DispatchQueue.main.async {
                                 DialogPresentation.shared.show(dialog)
                             }
@@ -73,8 +76,10 @@ final class SplashViewModel: ObservableObject {
                 self?.animate()
             case .failure(let error):
                 switch error {
-                case SplashError.needUpdate: print("앱스토어로 이동~") // TODO: 앱스토어로 이동~
-                default: Logger.error("error: \(error)")
+                case SplashError.needUpdate:
+                    self?.openAppStore()
+                default:
+                    Logger.error("error: \(error)")
                 }
             }
         })
@@ -87,8 +92,16 @@ final class SplashViewModel: ObservableObject {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.35) { [weak self] in
             withAnimation {
-                self?.showSplashView.toggle()
+                self?.showsSplashView.toggle()
             }
+        }
+    }
+    
+    private func openAppStore() {
+        let urlString = "itms-apps://itunes.apple.com/app/1626839861"
+        if let url = URL(string: urlString),
+           UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 }
@@ -104,7 +117,7 @@ final class SplashViewModel: ObservableObject {
 //    private var cancellables = Set<AnyCancellable>()
 //
 //    @Published var isLogoAnimationOn = false
-//    @Published var showSplashView = true
+//    @Published var showsSplashView = true
 //
 //    init() {
 //        initiaize()
@@ -150,7 +163,7 @@ final class SplashViewModel: ObservableObject {
 //
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 1.35) { [weak self] in
 //            withAnimation {
-//                self?.showSplashView.toggle()
+//                self?.showsSplashView.toggle()
 //            }
 //        }
 //    }
