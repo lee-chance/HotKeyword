@@ -28,9 +28,9 @@ struct InternalKeywordValue: Codable {
     let updatedAt: Date
 }
 
-#if DEBUG
 extension HotKeyword {
     static func dummy() -> [HotKeyword] {
+        #if DEBUG
         [
             HotKeyword(rank: 1, text: "르세라핌"),
             HotKeyword(rank: 2, text: "붉은단심"),
@@ -53,6 +53,30 @@ extension HotKeyword {
             HotKeyword(rank: 19, text: "김종국"),
             HotKeyword(rank: 20, text: "사장님 귀는 당나귀 귀"),
         ]
+        #else
+        [
+            HotKeyword(rank: 1, text: "****"),
+            HotKeyword(rank: 2, text: "****"),
+            HotKeyword(rank: 3, text: "***"),
+            HotKeyword(rank: 4, text: "***"),
+            HotKeyword(rank: 5, text: "***"),
+            HotKeyword(rank: 6, text: "********"),
+            HotKeyword(rank: 7, text: "*********"),
+            HotKeyword(rank: 8, text: "***"),
+            HotKeyword(rank: 9, text: "*****"),
+            HotKeyword(rank: 10, text: "*****"),
+            HotKeyword(rank: 11, text: "******"),
+            HotKeyword(rank: 12, text: "***"),
+            HotKeyword(rank: 13, text: "****"),
+            HotKeyword(rank: 14, text: "*****"),
+            HotKeyword(rank: 15, text: "***********"),
+            HotKeyword(rank: 16, text: "***"),
+            HotKeyword(rank: 17, text: "*******"),
+            HotKeyword(rank: 18, text: "***"),
+            HotKeyword(rank: 19, text: "***"),
+            HotKeyword(rank: 20, text: "*********"),
+        ]
+        #endif
     }
 }
-#endif
+
