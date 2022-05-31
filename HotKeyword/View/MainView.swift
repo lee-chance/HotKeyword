@@ -42,9 +42,6 @@ struct MainView: View {
                 
                 GoogleADBannerView(unitID: GoogleADKey.mainBanner.keyValue)
                     .frame(height: bottomBannerHeight)
-                    .onAppear {
-                        print("cslog height: \(Screen.height)")
-                    }
             }
             .navigationBarTitle("🔥 실시간 인기 검색어")
             .toolbar {

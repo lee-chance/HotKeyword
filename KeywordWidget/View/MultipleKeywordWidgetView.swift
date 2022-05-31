@@ -13,18 +13,19 @@ struct MultipleKeywordWidgetView: View {
     let entry: Provider.Entry
     
     var body: some View {
-        switch family {
-        case .systemSmall:
-            SmallView(entry: entry)
-        case .systemMedium:
-            MediumView(entry: entry)
-        case .systemLarge:
-            LargeView(entry: entry)
-        case .systemExtraLarge:
-            ExtraLargeView(entry: entry) // only iPad
-        @unknown default:
-            Text("unknown")
-        }
+        SmallView(entry: entry)
+//        switch family {
+//        case .systemSmall:
+//            SmallView(entry: entry)
+//        case .systemMedium:
+//            MediumView(entry: entry)
+//        case .systemLarge:
+//            LargeView(entry: entry)
+//        case .systemExtraLarge:
+//            ExtraLargeView(entry: entry) // only iPad
+//        @unknown default:
+//            Text("unknown")
+//        }
     }
 }
 
