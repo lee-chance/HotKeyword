@@ -65,6 +65,8 @@
 		2EAC970A2833A65100CA6BB3 /* HotKeywordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC97092833A65000CA6BB3 /* HotKeywordService.swift */; };
 		2EC0CE6E2837FFDA007ED601 /* MultipleKeywordWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0CE6D2837FFDA007ED601 /* MultipleKeywordWidgetView.swift */; };
 		2EC0CE6F283800D8007ED601 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5CA4282264C600F38EE4 /* DateExtension.swift */; };
+		2EEE030828560E44006D5B29 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2EEE030728560E44006D5B29 /* FirebaseMessaging */; };
+		2EEE030A285612C1006D5B29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEE0309285612C1006D5B29 /* AppDelegate.swift */; };
 		2EF13E4E28380DCC00B6080F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C65282220AB00F38EE4 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +142,7 @@
 		2EAC97072833673B00CA6BB3 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		2EAC97092833A65000CA6BB3 /* HotKeywordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordService.swift; sourceTree = "<group>"; };
 		2EC0CE6D2837FFDA007ED601 /* MultipleKeywordWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleKeywordWidgetView.swift; sourceTree = "<group>"; };
+		2EEE0309285612C1006D5B29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EEE030828560E44006D5B29 /* FirebaseMessaging in Frameworks */,
 				2E394D7B282A3A8100445D5C /* FirebaseFirestoreCombine-Community in Frameworks */,
 				2E394D77282A3A8100445D5C /* FirebaseCrashlytics in Frameworks */,
 				2E4C4EF0283A566A000D3C47 /* GoogleMobileAds in Frameworks */,
@@ -283,6 +287,7 @@
 				2EAC970128334EA600CA6BB3 /* Info.plist */,
 				2E01D17B282E5357008EA239 /* HotKeyword.entitlements */,
 				2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */,
+				2EEE0309285612C1006D5B29 /* AppDelegate.swift */,
 				2E08DC8B28376954009092BC /* Dialog */,
 				2E084D8528290DCE00A299E9 /* View */,
 				2E084D8428290DBA00A299E9 /* ViewModel */,
@@ -368,6 +373,7 @@
 				2E394D78282A3A8100445D5C /* FirebaseFirestore */,
 				2E394D7A282A3A8100445D5C /* FirebaseFirestoreCombine-Community */,
 				2E4C4EEF283A566A000D3C47 /* GoogleMobileAds */,
+				2EEE030728560E44006D5B29 /* FirebaseMessaging */,
 			);
 			productName = HotKeyword;
 			productReference = 2E8C5C5E282220A900F38EE4 /* HotKeyword.app */;
@@ -483,6 +489,7 @@
 				2E01D152282DF110008EA239 /* SplashView.swift in Sources */,
 				2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */,
 				2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */,
+				2EEE030A285612C1006D5B29 /* AppDelegate.swift in Sources */,
 				2EAC970A2833A65100CA6BB3 /* HotKeywordService.swift in Sources */,
 				2E8C5C8D2822414600F38EE4 /* AppSettings.swift in Sources */,
 				2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */,
@@ -859,6 +866,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2E4C4EEE283A566A000D3C47 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
+		};
+		2EEE030728560E44006D5B29 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E394D71282A3A8100445D5C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

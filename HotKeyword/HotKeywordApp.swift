@@ -11,6 +11,8 @@ import GoogleMobileAds
 
 @main
 struct HotKeywordApp: App {
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    
     @StateObject var settings = AppSettings.shared
     @StateObject var dialog = DialogPresentation.shared
     
