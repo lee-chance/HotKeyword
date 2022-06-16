@@ -25,15 +25,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         
         application.registerForRemoteNotifications()
         
-        // 알림 구독 (한 번 구독해두면 unsubscribe 할 때까지 유효하다.)
-//        Messaging.messaging().subscribe(toTopic: "HotKeyword") { error in
-//            if let error = error {
-//                print("Subscribed to HotKeyword topic error: \(error)")
-//            } else {
-//                print("Subscribed to HotKeyword topic")
-//            }
-//        }
-        
         return true
     }
     
