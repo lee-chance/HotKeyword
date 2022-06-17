@@ -15,8 +15,19 @@ final class AppSettings: ObservableObject {
     
     private(set) var pointPerClick: CGFloat = 0
     
+    @Published var allowsNotification: Bool = false {
+        didSet {
+            notification(isOn: allowsNotification) { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.allowsNotification = oldValue
+                }
+            }
+        }
+    }
+    
     private init() {
         fetchSearchEngine()
+        fetchAllowsNotification()
     }
     
     private func saveSearchEngine(_ engine: SearchEngine) {
@@ -27,6 +38,24 @@ final class AppSettings: ObservableObject {
         if let savedSearchEngine = UserDefaults.standard.string(forKey: UserDefaultsKey.searchEngine.key),
            let engine = SearchEngine(rawValue: savedSearchEngine) {
             searchEngine = engine
+        }
+    }
+    
+    private func saveAllowsNotification(_ isOn: Bool) {
+        UserDefaults.standard.set(isOn, forKey: UserDefaultsKey.allowsNotification.key)
+    }
+    
+    private func fetchAllowsNotification() {
+        allowsNotification = UserDefaults.standard.bool(forKey: UserDefaultsKey.allowsNotification.key)
+    }
+    
+    private func notification(isOn: Bool, failure: @escaping (Error) -> Void) {
+        saveAllowsNotification(isOn)
+        
+        if isOn {
+            FCMManager.subscribe(topic: .hotKeyword(clock: 9), failure: failure)
+        } else {
+            FCMManager.unsubscribe(topic: .hotKeyword(clock: 9), failure: failure)
         }
     }
     

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingView: View {
     @State private var selectedSearchEngine: SearchEngine
+    @ObservedObject var settings = AppSettings.shared
     
     init() {
         self.selectedSearchEngine = AppSettings.shared.searchEngine
@@ -48,6 +49,26 @@ struct SettingView: View {
                 } header: {
                     Text("어디서 검색할까요?")
                 }
+            }
+            
+            Section {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("푸시 알림")
+                        
+                        Text("매일 아침 09:00에 알림 받기")
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.1)
+                    }
+                    
+                    Spacer()
+                    
+                    Toggle("", isOn: $settings.allowsNotification)
+                }
+            } header: {
+                Text("알림")
             }
             
             Section {

@@ -9,6 +9,7 @@ import Foundation
 
 enum UserDefaultsKey {
     case searchEngine
+    case allowsNotification
     
     var key: String {
         "com.cslee.HotKeyword.\(self)"
