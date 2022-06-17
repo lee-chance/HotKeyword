@@ -19,11 +19,10 @@ final class FCMManager {
                 
                 Messaging.messaging().subscribe(toTopic: topicName) { error in
                     if let error = error {
-                        print("Subscribed to \(topicName) topic error: \(error)")
+                        Logger.warning("Subscribed to \(topicName) topic error: \(error)")
                         failure?(error)
                     } else {
-                        // TODO: UserDefaults에 저장하기
-                        print("Subscribed to \(topicName) topic")
+                        Logger.info("Subscribed to \(topicName) topic")
                     }
                 }
             }
@@ -35,10 +34,10 @@ final class FCMManager {
         
         Messaging.messaging().unsubscribe(fromTopic: topicName) { error in
             if let error = error {
-                print("Unsubscribed to \(topicName) topic error: \(error)")
+                Logger.warning("Unsubscribed to \(topicName) topic error: \(error)")
                 failure?(error)
             } else {
-                print("Unsubscribed to \(topicName) topic")
+                Logger.info("Unsubscribed to \(topicName) topic")
             }
         }
     }
@@ -58,24 +57,24 @@ final class FCMManager {
         current.getNotificationSettings { permission in
             switch permission.authorizationStatus {
             case .authorized:
-                print("User granted permission for notification")
+                Logger.info("User granted permission for notification")
                 completion(nil)
             case .denied:
-                print("User denied notification permission")
+                Logger.notice("User denied notification permission")
                 completion(.denied)
             case .notDetermined:
-                print("Notification permission haven't been asked yet")
+                Logger.notice("Notification permission haven't been asked yet")
                 completion(.notDetermined)
             case .provisional:
                 // @available(iOS 12.0, *)
-                print("The application is authorized to post non-interruptive user notifications.")
+                Logger.info("The application is authorized to post non-interruptive user notifications.")
                 completion(nil)
             case .ephemeral:
                 // @available(iOS 14.0, *)
-                print("The application is temporarily authorized to post notifications. Only available to app clips.")
+                Logger.info("The application is temporarily authorized to post notifications. Only available to app clips.")
                 completion(nil)
             @unknown default:
-                print("Unknow Status")
+                Logger.error("Unknow Status")
                 completion(.unknow)
             }
         }

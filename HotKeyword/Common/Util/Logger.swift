@@ -77,36 +77,76 @@ struct Logger {
 }
 
 extension Logger {
+    /// 👣 TRACE
+    ///
+    /// Appropriate for messages that contain information normally of use only when
+    /// tracing the execution of a program.
+    ///
+    /// 프로그램 실행을 추적하는 경우에만 일반적으로 사용되는 정보가 포함된 메시지에 적합합니다.
     static func trace(_ str: String, file: String = #fileID, function: String = #function, line: Int = #line) {
         let context = Context(file: file, function: function, line: line)
         Logger.handleLog(level: .trace, message: str.description, context: context)
     }
     
+    /// 💬 DEBUG
+    ///
+    /// Appropriate for messages that contain information normally of use only when
+    /// debugging a program.
+    ///
+    /// 프로그램을 디버깅할 때만 일반적으로 사용되는 정보를 포함하는 메시지에 적합합니다.
     static func debug(_ str: String, file: String = #fileID, function: String = #function, line: Int = #line) {
         let context = Context(file: file, function: function, line: line)
         Logger.handleLog(level: .debug, message: str.description, context: context)
     }
     
+    /// ℹ️ INFO
+    ///
+    /// Appropriate for informational messages.
+    ///
+    /// 정보 메시지에 적합합니다.
     static func info(_ str: String, file: String = #fileID, function: String = #function, line: Int = #line) {
         let context = Context(file: file, function: function, line: line)
         Logger.handleLog(level: .info, message: str.description, context: context)
     }
     
+    /// 📢 NOTICE
+    ///
+    /// Appropriate for conditions that are not error conditions, but that may require
+    /// special handling.
+    ///
+    /// 오류 상태는 아니지만 특별한 취급이 필요할 수 있는 조건에 적합합니다.
     static func notice(_ str: String, file: String = #fileID, function: String = #function, line: Int = #line) {
         let context = Context(file: file, function: function, line: line)
         Logger.handleLog(level: .notice, message: str.description, context: context)
     }
     
+    /// ⚠️ WARNING
+    ///
+    /// Appropriate for messages that are not error conditions, but more severe than
+    /// `.notice`.
+    ///
+    /// 오류 상태는 아니지만 `.notice`보다 심각한 메시지에 적합합니다.
     static func warning(_ str: String, file: String = #fileID, function: String = #function, line: Int = #line) {
         let context = Context(file: file, function: function, line: line)
         Logger.handleLog(level: .warning, message: str.description, context: context)
     }
     
+    /// ‼️ ERROR
+    ///
+    /// Appropriate for error conditions.
+    ///
+    /// 에러 상태에 적합합니다.
     static func error(_ str: String, file: String = #fileID, function: String = #function, line: Int = #line) {
         let context = Context(file: file, function: function, line: line)
         Logger.handleLog(level: .error, message: str.description, context: context)
     }
     
+    /// 🔥 CRITICAL
+    ///
+    /// Appropriate for critical error conditions that usually require immediate
+    /// attention.
+    ///
+    /// 일반적으로 즉각적인 주의가 필요한 심각한 오류 상황에 적합합니다.
     static func critical(_ str: String, file: String = #fileID, function: String = #function, line: Int = #line) {
         let context = Context(file: file, function: function, line: line)
         Logger.handleLog(level: .critical, message: str.description, context: context)

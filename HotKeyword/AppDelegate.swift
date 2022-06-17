@@ -42,7 +42,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFailToRegisterForRemoteNotificationsWithError error: Error
     ) {
-        print("Failed to register: \(error.localizedDescription)")
+        Logger.notice("Failed to register: \(error.localizedDescription)")
     }
 }
 
@@ -54,7 +54,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
         let userInfo = notification.request.content.userInfo
-        print("Will Present User Info: \(userInfo)")
+        Logger.info("Will Present User Info: \(userInfo)")
         
         completionHandler([[.badge, .banner, .sound]])
     }
@@ -68,7 +68,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         let userInfo = response.notification.request.content.userInfo
         
         if response.actionIdentifier == "accept" {
-            print("Did Receive User Info: \(userInfo)")
+            Logger.info("Did Receive User Info: \(userInfo)")
             
             completionHandler()
         }
@@ -81,7 +81,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         didReceiveRemoteNotification userInfo: [AnyHashable: Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
-        print(userInfo)
+        Logger.info(userInfo)
         completionHandler(.newData)
     }
 }
@@ -90,6 +90,6 @@ extension AppDelegate: MessagingDelegate {
     // 토큰 갱신 모니터링
     // https://firebase.google.com/docs/cloud-messaging/ios/client?hl=ko&authuser=0#monitor-token-refresh
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("Firebase registration token: \(String(describing: fcmToken))")
+        Logger.info("Firebase registration token: \(String(describing: fcmToken))")
     }
 }

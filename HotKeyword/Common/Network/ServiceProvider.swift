@@ -34,7 +34,7 @@ final class ServiceProvider<S: Service> {
             let statusCode = httpURLResponse?.statusCode
             #if DEBUG
             if let url = httpURLResponse?.url {
-                print("Request URL: \(url)")
+                Logger.debug("Request URL: \(url)")
             }
             #endif
             
@@ -76,7 +76,7 @@ final class ServiceProvider<S: Service> {
                 let statusCode = httpURLResponse?.statusCode
                 #if DEBUG
                 if let url = httpURLResponse?.url {
-                    print("Request URL: \(url)")
+                    Logger.debug("Request URL: \(url)")
                 }
                 #endif
                 
@@ -111,7 +111,7 @@ final class ServiceProvider<S: Service> {
         let statusCode = httpURLResponse?.statusCode
         #if DEBUG
         if let url = httpURLResponse?.url {
-            print("Request URL: \(url)")
+            Logger.debug("Request URL: \(url)")
         }
         #endif
         
