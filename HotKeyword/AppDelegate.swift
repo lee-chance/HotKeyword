@@ -81,7 +81,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         didReceiveRemoteNotification userInfo: [AnyHashable: Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
-        Logger.info(userInfo)
+        Logger.info("\(userInfo)")
         completionHandler(.newData)
     }
 }

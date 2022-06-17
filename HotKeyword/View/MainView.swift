@@ -46,24 +46,14 @@ struct MainView: View {
             .navigationBarTitle("🔥 실시간 인기 검색어")
             .toolbar {
                 ToolbarItem {
-                    if #available(iOS 15.0, *) {
-                        Button(action: {
-                            showSettingView.toggle()
-                        }) {
-                            Image(systemName: "gearshape.fill")
-                                .resizable()
-                                .frame(width: 16, height: 16)
-                                .foregroundColor(.text)
-                        }
-                    } else {
+                    Button(action: {
+                        showSettingView.toggle()
+                    }) {
                         Image(systemName: "gearshape.fill")
                             .resizable()
-                            .foregroundColor(.text)
-                            .frame(width: 20, height: 20)
-                            .onTapGesture {
-                                showSettingView.toggle()
-                            }
+                            .frame(width: 16, height: 16)
                     }
+                    .foregroundColor(.text)
                 }
             }
             .background(
