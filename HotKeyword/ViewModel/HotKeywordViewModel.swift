@@ -26,6 +26,14 @@ final class HotKeywordViewModel: ObservableObject {
         model.updatedDate
     }
     
+    var bottomBannerHeight: CGFloat {
+        if AppSettings.shared.adFree {
+            return 0
+        } else {
+            return Screen.height > 600 ? 100 : 50
+        }
+    }
+    
     let db: Firestore
     
     init() {

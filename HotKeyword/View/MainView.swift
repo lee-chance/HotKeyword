@@ -13,8 +13,6 @@ struct MainView: View {
     
     @State private var showSettingView = false
     
-    private let bottomBannerHeight: CGFloat = Screen.height > 600 ? 100 : 50
-    
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
@@ -27,7 +25,7 @@ struct MainView: View {
                                 KeywordRow(keyword: keyword)
                             }
                             
-                            if keyword.rank == 10 {
+                            if keyword.rank == 10 && !AppSettings.shared.adFree {
                                 GoogleADBannerView(unitID: GoogleADKey.mainListBanner.keyValue)
                             }
                         }
@@ -36,12 +34,12 @@ struct MainView: View {
                             .animation(nil)
                     }
                 }
-                .padding(.bottom, bottomBannerHeight)
+                .padding(.bottom, viewModel.bottomBannerHeight)
                 .listStyle(.insetGrouped)
                 .accentColor(.text)
                 
                 GoogleADBannerView(unitID: GoogleADKey.mainBanner.keyValue)
-                    .frame(height: bottomBannerHeight)
+                    .frame(height: viewModel.bottomBannerHeight)
             }
             .navigationBarTitle("🔥 실시간 인기 검색어")
             .toolbar {

@@ -15,6 +15,8 @@ final class AppSettings: ObservableObject {
     
     private(set) var pointPerClick: CGFloat = 0
     
+    private(set) var adFree: Bool = true
+    
     @Published var allowsNotification: Bool = false {
         didSet {
             notification(isOn: allowsNotification) { [weak self] _ in
