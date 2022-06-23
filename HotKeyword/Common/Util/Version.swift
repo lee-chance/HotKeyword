@@ -31,18 +31,22 @@ struct Version {
 
 extension Version: Comparable {
     static func < (lhs: Version, rhs: Version) -> Bool {
-        if lhs.major < rhs.major {
-            return true
-        } else if lhs.major > rhs.major {
-            return false
-        } else {
-            if lhs.minor < rhs.minor {
-                return true
-            } else if lhs.minor > rhs.minor {
-                return false
-            } else {
-                return lhs.fetch < rhs.fetch
-            }
+        if let bool = compare(lhs.major, rhs.major) {
+            return bool
         }
+        
+        if let bool = compare(lhs.minor, rhs.minor) {
+            return bool
+        }
+        
+        return lhs.fetch < rhs.fetch
+    }
+    
+    private static func compare(_ lhs: Int, _ rhs: Int) -> Bool? {
+        if lhs == rhs {
+            return nil
+        }
+        
+        return lhs < rhs
     }
 }
