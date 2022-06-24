@@ -72,6 +72,8 @@
 		2EEE030828560E44006D5B29 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2EEE030728560E44006D5B29 /* FirebaseMessaging */; };
 		2EEE030A285612C1006D5B29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEE0309285612C1006D5B29 /* AppDelegate.swift */; };
 		2EF13E4E28380DCC00B6080F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C65282220AB00F38EE4 /* Assets.xcassets */; };
+		2EF719EA2865963E00FE0DE6 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF719E92865963E00FE0DE6 /* AsyncImage.swift */; };
+		2EF719EC2865B93400FE0DE6 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF719EB2865B93400FE0DE6 /* ViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +153,8 @@
 		2EAC97092833A65000CA6BB3 /* HotKeywordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordService.swift; sourceTree = "<group>"; };
 		2EC0CE6D2837FFDA007ED601 /* MultipleKeywordWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleKeywordWidgetView.swift; sourceTree = "<group>"; };
 		2EEE0309285612C1006D5B29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2EF719E92865963E00FE0DE6 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		2EF719EB2865B93400FE0DE6 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 				2E08DC89283764AD009092BC /* Version.swift */,
 				2E08DC92283776B6009092BC /* Logger.swift */,
 				2E5911192845236500B9E86A /* Screen.swift */,
+				2EF719E92865963E00FE0DE6 /* AsyncImage.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				2E8C5CA4282264C600F38EE4 /* DateExtension.swift */,
+				2EF719EB2865B93400FE0DE6 /* ViewExtension.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF719EA2865963E00FE0DE6 /* AsyncImage.swift in Sources */,
 				2E8C5C9228224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift in Sources */,
 				2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */,
 				2E4C4EF2283A57E2000D3C47 /* GoogleADBannerView.swift in Sources */,
@@ -508,6 +515,7 @@
 				2E59111A2845236500B9E86A /* Screen.swift in Sources */,
 				2E08DC8D28376965009092BC /* DialogPresentation.swift in Sources */,
 				2E01D152282DF110008EA239 /* SplashView.swift in Sources */,
+				2EF719EC2865B93400FE0DE6 /* ViewExtension.swift in Sources */,
 				2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */,
 				2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */,
 				2EEE030A285612C1006D5B29 /* AppDelegate.swift in Sources */,

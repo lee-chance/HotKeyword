@@ -14,3 +14,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
+
+extension String {
+    func toDate(format: String = "yyyy-MM-dd HH:mm:ss") -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
+        return dateFormatter.date(from: self)
+    }
+}
