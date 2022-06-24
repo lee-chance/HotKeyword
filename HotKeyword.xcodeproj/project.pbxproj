@@ -30,6 +30,9 @@
 		2E08DC9E2837943C009092BC /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC9B28379419009092BC /* Entry.swift */; };
 		2E08DCA028379515009092BC /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DC9F28379515009092BC /* Provider.swift */; };
 		2E08DCA228379C92009092BC /* KeywordWidgetMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08DCA128379C92009092BC /* KeywordWidgetMain.swift */; };
+		2E28C65C2864BFB500BBEAD5 /* HotKeywordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E28C65B2864BFB500BBEAD5 /* HotKeywordView.swift */; };
+		2E28C65E2864C05B00BBEAD5 /* HotNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E28C65D2864C05B00BBEAD5 /* HotNewsView.swift */; };
+		2E28C6602864C6B900BBEAD5 /* HotNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E28C65F2864C6B900BBEAD5 /* HotNews.swift */; };
 		2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E2EB51B282C1971001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E394D73282A3A8100445D5C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D72282A3A8100445D5C /* FirebaseAnalytics */; };
@@ -116,6 +119,9 @@
 		2E08DC9B28379419009092BC /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		2E08DC9F28379515009092BC /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		2E08DCA128379C92009092BC /* KeywordWidgetMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordWidgetMain.swift; sourceTree = "<group>"; };
+		2E28C65B2864BFB500BBEAD5 /* HotKeywordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordView.swift; sourceTree = "<group>"; };
+		2E28C65D2864C05B00BBEAD5 /* HotNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsView.swift; sourceTree = "<group>"; };
+		2E28C65F2864C6B900BBEAD5 /* HotNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNews.swift; sourceTree = "<group>"; };
 		2E2EB519282C1901001F5CBB /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
 		2E4C4EF1283A57E2000D3C47 /* GoogleADBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleADBannerView.swift; sourceTree = "<group>"; };
 		2E5911192845236500B9E86A /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
@@ -224,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				2E8C5C862822216B00F38EE4 /* HotKeyword.swift */,
+				2E28C65F2864C6B900BBEAD5 /* HotNews.swift */,
 				2E01D153282E22DC008EA239 /* HotKeywordModel.swift */,
 				2E004C112834EEF30070A90B /* AppInitialize.swift */,
 			);
@@ -250,6 +257,8 @@
 				2E2EB519282C1901001F5CBB /* SharedView.swift */,
 				2E08DC94283782C3009092BC /* SettingView.swift */,
 				2E4C4EF1283A57E2000D3C47 /* GoogleADBannerView.swift */,
+				2E28C65B2864BFB500BBEAD5 /* HotKeywordView.swift */,
+				2E28C65D2864C05B00BBEAD5 /* HotNewsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -486,6 +495,7 @@
 				2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */,
 				2E4C4EF2283A57E2000D3C47 /* GoogleADBannerView.swift in Sources */,
 				2EAC9706283352E300CA6BB3 /* Service.swift in Sources */,
+				2E28C6602864C6B900BBEAD5 /* HotNews.swift in Sources */,
 				2E01D154282E22DC008EA239 /* HotKeywordModel.swift in Sources */,
 				2E08DC8A283764AD009092BC /* Version.swift in Sources */,
 				2E004C102834CE020070A90B /* FirebaseService.swift in Sources */,
@@ -507,7 +517,9 @@
 				2E7F00FC285A21DD00C2B407 /* FCMManager.swift in Sources */,
 				2E004C122834EEF30070A90B /* AppInitialize.swift in Sources */,
 				2E08DC97283788F6009092BC /* HotKeywordInfo.swift in Sources */,
+				2E28C65E2864C05B00BBEAD5 /* HotNewsView.swift in Sources */,
 				2E08DC93283776B6009092BC /* Logger.swift in Sources */,
+				2E28C65C2864BFB500BBEAD5 /* HotKeywordView.swift in Sources */,
 				2E08DC95283782C3009092BC /* SettingView.swift in Sources */,
 				2E8C5C8F2822450600F38EE4 /* HotKeywordDefine.swift in Sources */,
 				2E08DC8F2837698F009092BC /* DialogContent.swift in Sources */,

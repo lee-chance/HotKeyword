@@ -9,39 +9,30 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var settings: AppSettings
-    @ObservedObject var viewModel: HotKeywordViewModel
+    @StateObject var viewModel: HotKeywordViewModel
     
     @State private var showSettingView = false
     
     var body: some View {
         NavigationView {
-            ZStack(alignment: .bottom) {
-                List {
-                    Section {
-                        ForEach(viewModel.keywords, id: \.id) { keyword in
-                            Button(action: {
-                                viewModel.search(keyword: keyword.text, from: settings.searchEngine)
-                            }) {
-                                KeywordRow(keyword: keyword)
-                            }
-                            
-                            if keyword.rank == 10 && !AppSettings.shared.adFree {
-                                GoogleADBannerView(unitID: GoogleADKey.mainListBanner.keyValue)
-                            }
-                        }
-                    } header: {
-                        UpdatedDateText(updatedDate: viewModel.updatedDate)
-                            .animation(nil)
+            TabView(selection: $viewModel.tabSelection) {
+                HotKeywordView(viewModel: viewModel)
+                    .tabItem {
+                        Image(systemName: "rectangle.and.text.magnifyingglass")
+                        
+                        Text(MainTab.keyword.name)
                     }
-                }
-                .padding(.bottom, viewModel.bottomBannerHeight)
-                .listStyle(.insetGrouped)
-                .accentColor(.text)
+                    .tag(MainTab.keyword)
                 
-                GoogleADBannerView(unitID: GoogleADKey.mainBanner.keyValue)
-                    .frame(height: viewModel.bottomBannerHeight)
+                HotNewsView(viewModel: viewModel)
+                    .tabItem {
+                        Image(systemName: "newspaper.fill")
+                        
+                        Text(MainTab.news.name)
+                    }
+                    .tag(MainTab.news)
             }
-            .navigationBarTitle("🔥 실시간 인기 검색어")
+            .navigationBarTitle(viewModel.navigationTitle)
             .toolbar {
                 ToolbarItem {
                     Button(action: {
@@ -60,9 +51,9 @@ struct MainView: View {
                 }
             )
         }
-        .ignoresSafeArea()
         .onAppear {
             viewModel.hotKeywordBinding()
+            viewModel.hotNewsBinding()
         }
     }
 }
