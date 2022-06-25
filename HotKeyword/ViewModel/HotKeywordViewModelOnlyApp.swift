@@ -9,6 +9,9 @@ import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 
+
+// MARK: - Hot Keyword
+
 fileprivate typealias InternalKeywords = [String : InternalKeywordValue]
 
 extension HotKeywordViewModel {
@@ -75,6 +78,25 @@ extension HotKeywordViewModel {
             try db.collection("internalKeywords").document(keyword).setData(from: updatedKeyword)
         } catch let error {
             Logger.error("Error writing to Firestore: \(error)")
+        }
+    }
+}
+
+
+// MARK: - Hot News
+
+extension HotKeywordViewModel {
+    func openNews(url: URL?) {
+        guard let url = url else {
+            Logger.error("오류 발생 url is nil")
+            return
+        }
+        
+        UIApplication.shared.open(url, options: [:]) { opened in
+            guard opened else {
+                Logger.error("오류 발생: \(url)")
+                return
+            }
         }
     }
 }

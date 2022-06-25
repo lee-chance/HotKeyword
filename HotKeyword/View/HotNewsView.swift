@@ -75,6 +75,9 @@ struct HotNewsView: View {
                                 }
                             }
                         )
+                        .onTapGesture {
+                            viewModel.openNews(url: article.url)
+                        }
                     }
                 }
                 .padding(.horizontal)
