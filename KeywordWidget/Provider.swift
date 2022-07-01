@@ -16,7 +16,7 @@ struct Provider: TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         let db = Firestore.firestore()
         
-        db.collection("keywords").document("finalKeywords")
+        db.collection(HotValue.hotKeywordsCollectionName.rawValue).document("finalKeywords")
             .getDocument { documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     return
@@ -24,12 +24,14 @@ struct Provider: TimelineProvider {
                 
                 guard
                     let lastUpdatedAt = document.get("timestamp") as? Timestamp,
-                    let keywords = document.get("keywords") as? [String]
+                    let firebaseKeywords = document.get("keywords") as? [String]
                 else {
                     return
                 }
                 
-                let hotKeywords = keywords.indices.map { HotKeyword(rank: $0 + 1, text: keywords[$0]) }
+                let keywords = firebaseKeywords.map { $0.components(separatedBy: " | ") }
+                
+                let hotKeywords = keywords.map { HotKeyword(rank: Int($0[1])!, latestRank: Int($0[2])!, text: $0[0]) }
                 
                 let entry = SimpleEntry(date: Date() + 1, keywords: hotKeywords, updatedAt: lastUpdatedAt.dateValue(), context: context)
                 completion(entry)

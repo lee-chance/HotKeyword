@@ -26,10 +26,10 @@ final class HotKeywordViewModel: ObservableObject {
     @Published private(set) var model = HotKeywordModel() {
         didSet {
             // FIXME: 이거 필요 없어보인다..
-            if let userDefaults = UserDefaults(suiteName: "group.com.cslee.HotKeyword") {
-                userDefaults.set(try? PropertyListEncoder().encode(model.keywords), forKey: "keywords")
-                userDefaults.set(model.updatedDate, forKey: "updatedDate")
-            }
+//            if let userDefaults = UserDefaults(suiteName: "group.com.cslee.HotKeyword") {
+//                userDefaults.set(try? PropertyListEncoder().encode(model.keywords), forKey: "keywords")
+//                userDefaults.set(model.updatedDate, forKey: "updatedDate")
+//            }
         }
     }
     
@@ -64,7 +64,7 @@ final class HotKeywordViewModel: ObservableObject {
     }
     
     func hotKeywordBinding() {
-        db.collection("keywords").document("finalKeywords")
+        db.collection(HotValue.hotKeywordsCollectionName.rawValue).document("finalKeywords")
             .addSnapshotListener { [weak self] documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     Logger.error("Error fetching document: \(error!)")
@@ -73,13 +73,15 @@ final class HotKeywordViewModel: ObservableObject {
                 
                 guard
                     let lastUpdatedAt = document.get("timestamp") as? Timestamp,
-                    let keywords = document.get("keywords") as? [String]
+                    let firebaseKeywords = document.get("keywords") as? [String]
                 else {
                     Logger.error("Document data was empty.")
                     return
                 }
                 
-                let hotKeywords = keywords.indices.map { HotKeyword(rank: $0 + 1, text: keywords[$0]) }
+                let keywords = firebaseKeywords.map { $0.components(separatedBy: " | ") }
+                
+                let hotKeywords = keywords.map { HotKeyword(rank: Int($0[1])!, latestRank: Int($0[2])!, text: $0[0]) }
                 
                 let model = HotKeywordModel(keywords: hotKeywords, updatedDate: lastUpdatedAt.dateValue())
                 
@@ -90,7 +92,7 @@ final class HotKeywordViewModel: ObservableObject {
     }
     
     func hotNewsBinding() {
-        db.collection("news").document("headlines")
+        db.collection(HotValue.hotNewsCollectionName.rawValue).document("headlines")
             .addSnapshotListener { [weak self] documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     Logger.error("Error fetching document: \(error!)")

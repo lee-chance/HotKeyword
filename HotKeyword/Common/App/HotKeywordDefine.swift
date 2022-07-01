@@ -7,6 +7,24 @@
 
 import Foundation
 
+enum HotValue: String {
+    case hotKeywordsCollectionName
+    case hotNewsCollectionName
+    
+    var rawValue: String {
+        switch self {
+        case .hotKeywordsCollectionName:
+            #if DEBUG
+            return "test"
+            #else
+            return "keywords"
+            #endif
+        case .hotNewsCollectionName:
+            return "news"
+        }
+    }
+}
+
 enum UserDefaultsKey {
     case searchEngine
     case allowsNotification

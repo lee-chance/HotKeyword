@@ -10,6 +10,8 @@ import FirebaseMessaging
 
 final class FCMManager {
     static func subscribe(topic: Topic, failure: ((Error) -> Void)? = nil) {
+        #if targetEnvironment(simulator)
+        #else
         getPermissionState { error in
             if let error = error {
                 failure?(error)
@@ -27,9 +29,12 @@ final class FCMManager {
                 }
             }
         }
+        #endif
     }
     
     static func unsubscribe(topic: Topic, failure: ((Error) -> Void)? = nil) {
+        #if targetEnvironment(simulator)
+        #else
         let topicName = topic.rawValue
         
         Messaging.messaging().unsubscribe(fromTopic: topicName) { error in
@@ -40,6 +45,7 @@ final class FCMManager {
                 Logger.info("Unsubscribed to \(topicName) topic")
             }
         }
+        #endif
     }
     
     static func unsubscribeAllTopics(failure: ((Error) -> Void)? = nil) {
