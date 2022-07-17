@@ -33,6 +33,11 @@
 		2E28C65C2864BFB500BBEAD5 /* HotKeywordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E28C65B2864BFB500BBEAD5 /* HotKeywordView.swift */; };
 		2E28C65E2864C05B00BBEAD5 /* HotNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E28C65D2864C05B00BBEAD5 /* HotNewsView.swift */; };
 		2E28C6602864C6B900BBEAD5 /* HotNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E28C65F2864C6B900BBEAD5 /* HotNews.swift */; };
+		2E2A15072882CC9000D62ACF /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2A15062882CC9000D62ACF /* WeatherForecastView.swift */; };
+		2E2A150928841AAF00D62ACF /* ForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2A150828841AAF00D62ACF /* ForecastService.swift */; };
+		2E2A150B2884561E00D62ACF /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2A150A2884561E00D62ACF /* Forecast.swift */; };
+		2E2A150C2884651F00D62ACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C7C2822211500F38EE4 /* Assets.xcassets */; };
+		2E2A150E288465C200D62ACF /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2A150D288465C200D62ACF /* ForecastViewModel.swift */; };
 		2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E2EB51B282C1971001F5CBB /* SharedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2EB519282C1901001F5CBB /* SharedView.swift */; };
 		2E394D73282A3A8100445D5C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E394D72282A3A8100445D5C /* FirebaseAnalytics */; };
@@ -52,7 +57,6 @@
 		2E8C5C762822211400F38EE4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8C5C752822211400F38EE4 /* WidgetKit.framework */; };
 		2E8C5C782822211400F38EE4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8C5C772822211400F38EE4 /* SwiftUI.framework */; };
 		2E8C5C7B2822211400F38EE4 /* KeywordWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C7A2822211400F38EE4 /* KeywordWidget.swift */; };
-		2E8C5C7D2822211500F38EE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C7C2822211500F38EE4 /* Assets.xcassets */; };
 		2E8C5C812822211500F38EE4 /* KeywordWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2E8C5C732822211400F38EE4 /* KeywordWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2E8C5C872822216B00F38EE4 /* HotKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C862822216B00F38EE4 /* HotKeyword.swift */; };
 		2E8C5C892822291900F38EE4 /* HotKeywordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C882822291900F38EE4 /* HotKeywordViewModel.swift */; };
@@ -124,6 +128,10 @@
 		2E28C65B2864BFB500BBEAD5 /* HotKeywordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordView.swift; sourceTree = "<group>"; };
 		2E28C65D2864C05B00BBEAD5 /* HotNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsView.swift; sourceTree = "<group>"; };
 		2E28C65F2864C6B900BBEAD5 /* HotNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNews.swift; sourceTree = "<group>"; };
+		2E2A15062882CC9000D62ACF /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
+		2E2A150828841AAF00D62ACF /* ForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastService.swift; sourceTree = "<group>"; };
+		2E2A150A2884561E00D62ACF /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		2E2A150D288465C200D62ACF /* ForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
 		2E2EB519282C1901001F5CBB /* SharedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedView.swift; sourceTree = "<group>"; };
 		2E4C4EF1283A57E2000D3C47 /* GoogleADBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleADBannerView.swift; sourceTree = "<group>"; };
 		2E5911192845236500B9E86A /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
@@ -209,6 +217,7 @@
 				2E084D8128290D8200A299E9 /* App */,
 				2EAC97092833A65000CA6BB3 /* HotKeywordService.swift */,
 				2E004C0F2834CE020070A90B /* FirebaseService.swift */,
+				2E2A150828841AAF00D62ACF /* ForecastService.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -239,6 +248,7 @@
 				2E28C65F2864C6B900BBEAD5 /* HotNews.swift */,
 				2E01D153282E22DC008EA239 /* HotKeywordModel.swift */,
 				2E004C112834EEF30070A90B /* AppInitialize.swift */,
+				2E2A150A2884561E00D62ACF /* Forecast.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +260,7 @@
 				2E8C5C882822291900F38EE4 /* HotKeywordViewModel.swift */,
 				2E8C5C9128224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift */,
 				2EAC970228334F8200CA6BB3 /* SplashViewModel.swift */,
+				2E2A150D288465C200D62ACF /* ForecastViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -265,6 +276,7 @@
 				2E4C4EF1283A57E2000D3C47 /* GoogleADBannerView.swift */,
 				2E28C65B2864BFB500BBEAD5 /* HotKeywordView.swift */,
 				2E28C65D2864C05B00BBEAD5 /* HotNewsView.swift */,
+				2E2A15062882CC9000D62ACF /* WeatherForecastView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -476,6 +488,7 @@
 			files = (
 				2E8C5C69282220AB00F38EE4 /* Preview Assets.xcassets in Resources */,
 				2E8C5C66282220AB00F38EE4 /* Assets.xcassets in Resources */,
+				2E2A150C2884651F00D62ACF /* Assets.xcassets in Resources */,
 				2E8C5C9D282253E700F38EE4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,7 +497,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E8C5C7D2822211500F38EE4 /* Assets.xcassets in Resources */,
 				2EF13E4E28380DCC00B6080F /* Assets.xcassets in Resources */,
 				2E865B51282FA35E003F6119 /* GoogleService-Info.plist in Resources */,
 			);
@@ -504,6 +516,7 @@
 				2EAC9706283352E300CA6BB3 /* Service.swift in Sources */,
 				2E28C6602864C6B900BBEAD5 /* HotNews.swift in Sources */,
 				2E01D154282E22DC008EA239 /* HotKeywordModel.swift in Sources */,
+				2E2A150B2884561E00D62ACF /* Forecast.swift in Sources */,
 				2E08DC8A283764AD009092BC /* Version.swift in Sources */,
 				2E004C102834CE020070A90B /* FirebaseService.swift in Sources */,
 				2EAC970328334F8200CA6BB3 /* SplashViewModel.swift in Sources */,
@@ -518,12 +531,14 @@
 				2EF719EC2865B93400FE0DE6 /* ViewExtension.swift in Sources */,
 				2E2EB51A282C1901001F5CBB /* SharedView.swift in Sources */,
 				2E084D7E28290D6D00A299E9 /* HotKeywordColor.swift in Sources */,
+				2E2A15072882CC9000D62ACF /* WeatherForecastView.swift in Sources */,
 				2EEE030A285612C1006D5B29 /* AppDelegate.swift in Sources */,
 				2EAC970A2833A65100CA6BB3 /* HotKeywordService.swift in Sources */,
 				2E8C5C8D2822414600F38EE4 /* AppSettings.swift in Sources */,
 				2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */,
 				2E7F00FC285A21DD00C2B407 /* FCMManager.swift in Sources */,
 				2E004C122834EEF30070A90B /* AppInitialize.swift in Sources */,
+				2E2A150E288465C200D62ACF /* ForecastViewModel.swift in Sources */,
 				2E08DC97283788F6009092BC /* HotKeywordInfo.swift in Sources */,
 				2E28C65E2864C05B00BBEAD5 /* HotNewsView.swift in Sources */,
 				2E08DC93283776B6009092BC /* Logger.swift in Sources */,
@@ -532,6 +547,7 @@
 				2E8C5C8F2822450600F38EE4 /* HotKeywordDefine.swift in Sources */,
 				2E08DC8F2837698F009092BC /* DialogContent.swift in Sources */,
 				2E8C5C62282220A900F38EE4 /* HotKeywordApp.swift in Sources */,
+				2E2A150928841AAF00D62ACF /* ForecastService.swift in Sources */,
 				2E01D150282DF107008EA239 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

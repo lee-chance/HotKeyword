@@ -16,6 +16,14 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             TabView(selection: $viewModel.tabSelection) {
+                WeatherForecastView(viewModel: ForecastViewModel())
+                    .tabItem {
+                        Image(systemName: "sun.max.fill")
+                        
+                        Text(MainTab.forecast.name)
+                    }
+                    .tag(MainTab.forecast)
+                
                 HotKeywordView(viewModel: viewModel)
                     .tabItem {
                         Image(systemName: "rectangle.and.text.magnifyingglass")

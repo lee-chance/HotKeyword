@@ -9,36 +9,42 @@ import SwiftUI
 import Firebase
 
 enum MainTab {
-    case keyword, news
+    case forecast, keyword, news
     
     var name: String {
         switch self {
-        case .keyword: return "검색어"
-        case .news: return "뉴스"
+        case .forecast:
+            return "날씨"
+        case .keyword:
+            return "검색어"
+        case .news:
+            return "뉴스"
+        }
+    }
+    
+    var navigationTitle: String {
+        switch self {
+        case .forecast:
+            return "🔥 실시간 날씨"
+        case .keyword:
+            return "🔥 실시간 인기 검색어"
+        case .news:
+            return "🔥 실시간 인기 뉴스"
         }
     }
 }
 
 final class HotKeywordViewModel: ObservableObject {
-    
     @Published var tabSelection: MainTab = .keyword
     
-    @Published private(set) var model = HotKeywordModel() {
-        didSet {
-            // FIXME: 이거 필요 없어보인다..
-//            if let userDefaults = UserDefaults(suiteName: "group.com.cslee.HotKeyword") {
-//                userDefaults.set(try? PropertyListEncoder().encode(model.keywords), forKey: "keywords")
-//                userDefaults.set(model.updatedDate, forKey: "updatedDate")
-//            }
-        }
-    }
+    @Published private(set) var model = HotKeywordModel()
     
     @Published private(set) var news = [Article]()
     
     
     // MARK: - UI
     var navigationTitle: String {
-        return "🔥 실시간 인기 \(tabSelection.name)"
+        tabSelection.navigationTitle
     }
     
     var keywords: [HotKeyword] {

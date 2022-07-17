@@ -13,7 +13,6 @@ enum SplashError: Error {
 }
 
 final class SplashViewModel: ObservableObject {
-    private var tasks = [() -> Void]()
     private let provider = ServiceProvider<FirebaseService>()
     
     @Published var isLogoAnimationOn = false
