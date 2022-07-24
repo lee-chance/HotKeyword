@@ -55,7 +55,9 @@ final class ServiceProvider<S: Service> {
             do {
                 // 4. Decoding Data
                 let decoded = try JSONDecoder().decode(decodeType, from: data)
-                callback(.success(decoded))
+                DispatchQueue.main.async {
+                    callback(.success(decoded))
+                }
             } catch {
                 // 5. Decoding Error Handling
                 guard let decodingError = error as? DecodingError else {

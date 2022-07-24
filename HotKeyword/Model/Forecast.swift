@@ -210,4 +210,27 @@ enum WMOCode: Int, CustomStringConvertible {
             return "Heavy Hail Thunderstorm"
         }
     }
+    
+    var imageSuffixName: String {
+        switch self {
+        case .clearSky:
+            return "clear-sky"
+        case .mainlyClear:
+            return "few-clouds"
+        case .partlyCloudy:
+            return "scattered-clouds"
+        case .overcast:
+            return "broken-clouds"
+        case .fog, .rimeFog:
+            return "mist"
+        case .lightDrizzle, .moderateDrizzle, .lightFreezingDrizzle, .slightRain, .lightFreezingRain, .slightRainShowers, .moderateRainShowers:
+            return "shower-rains"
+        case .denseDrizzle, .denseFreezingDrizzle, .moderateRain, .heavyIntensityRain, .heavyIntensityFreezingRain, .violentRainShowers:
+            return "rain"
+        case .slightSnowFall, .moderateSnowFall, .heavyIntensitySnowFall, .snowGrains, .slightSnowShowers, .heavySnowShowers:
+            return "snow"
+        case .moderateThunderstorm, .slightThunderstorm, .heavyHailThunderstorm:
+            return "thunderstorm"
+        }
+    }
 }

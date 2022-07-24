@@ -11,10 +11,18 @@ struct WeatherForecastView: View {
     @StateObject var viewModel: ForecastViewModel
     
     var body: some View {
-        Text("Hello, World!")
-            .onAppear {
-                viewModel.loadForecast()
+        ZStack {
+            if viewModel.currentWeather != nil {
+                LottieView(filename: viewModel.weatherLottieFilename) { b in
+                    print(b)
+                }
+            } else {
+                ProgressView()
             }
+        }
+        .onAppear {
+            viewModel.loadForecast()
+        }
     }
 }
 
