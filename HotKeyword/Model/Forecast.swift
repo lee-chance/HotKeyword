@@ -35,6 +35,18 @@ struct Forecast: Codable {
         case dailyUnits = "daily_units"
         case daily
     }
+    
+    var dailyWeathers: [DailyWeather] {
+        daily.time.indices.map {
+            DailyWeather(time: daily.time[$0], weathercode: daily.weathercode[$0], temperature2MMax: daily.temperature2MMax[$0], temperature2MMin: daily.temperature2MMin[$0])
+        }
+    }
+    
+    var hourlyWeathers: [HourlyWeather] {
+        hourly.time.indices.map {
+            HourlyWeather(time: hourly.time[$0], temperature2M: hourly.temperature2M[$0], relativehumidity2M: hourly.relativehumidity2M[$0], weathercode: hourly.weathercode[$0])
+        }
+    }
 }
 
 
@@ -66,6 +78,16 @@ struct Daily: Codable {
     }
 }
 
+struct DailyWeather: Identifiable {
+    var id: String { UUID().uuidString }
+    let time: String
+    let weathercode: Int
+    let temperature2MMax: Double
+    let temperature2MMin: Double
+    
+    var wmoCode: WMOCode { WMOCode(rawValue: weathercode) ?? .clearSky }
+}
+
 
 // MARK: - DailyUnits
 
@@ -87,16 +109,26 @@ struct DailyUnits: Codable {
 
 struct Hourly: Codable {
     let time: [String]
-    let temperature2M: [Double?]
-    let relativehumidity2M: [Int?]
-    let weathercode: [Int?]
-
+    let temperature2M: [Double]
+    let relativehumidity2M: [Int]
+    let weathercode: [Int]
+    
     enum CodingKeys: String, CodingKey {
         case time
         case temperature2M = "temperature_2m"
         case relativehumidity2M = "relativehumidity_2m"
         case weathercode
     }
+}
+
+struct HourlyWeather: Identifiable {
+    var id: String { UUID().uuidString }
+    let time: String
+    let temperature2M: Double
+    let relativehumidity2M: Int
+    let weathercode: Int
+    
+    var wmoCode: WMOCode { WMOCode(rawValue: weathercode) ?? .clearSky }
 }
 
 

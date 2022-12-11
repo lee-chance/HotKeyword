@@ -24,14 +24,12 @@ struct Provider: TimelineProvider {
                 
                 guard
                     let lastUpdatedAt = document.get("timestamp") as? Timestamp,
-                    let firebaseKeywords = document.get("keywords") as? [String]
+                    let keywords = document.get("keywords") as? [String]
                 else {
                     return
                 }
                 
-                let keywords = firebaseKeywords.map { $0.components(separatedBy: " | ") }
-                
-                let hotKeywords = keywords.map { HotKeyword(rank: Int($0[1])!, latestRank: Int($0[2])!, text: $0[0]) }
+                let hotKeywords = keywords.indices.map { HotKeyword(rank: $0 + 1, text: keywords[$0]) }
                 
                 let entry = SimpleEntry(date: Date() + 1, keywords: hotKeywords, updatedAt: lastUpdatedAt.dateValue(), context: context)
                 completion(entry)

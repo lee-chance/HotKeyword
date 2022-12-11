@@ -14,11 +14,7 @@ enum HotValue: String {
     var rawValue: String {
         switch self {
         case .hotKeywordsCollectionName:
-            #if DEBUG
-            return "test"
-            #else
             return "keywords"
-            #endif
         case .hotNewsCollectionName:
             return "news"
         }

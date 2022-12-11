@@ -86,6 +86,8 @@
 		2E8C5C9228224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5C9128224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift */; };
 		2E8C5C9D282253E700F38EE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C9C282253E700F38EE4 /* GoogleService-Info.plist */; };
 		2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5CA4282264C600F38EE4 /* DateExtension.swift */; };
+		2E9517792945A8DF001E6ED6 /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9517782945A8DF001E6ED6 /* AppExtension.swift */; };
+		2E95177B2945AA05001E6ED6 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95177A2945AA05001E6ED6 /* DataExtension.swift */; };
 		2EAC970328334F8200CA6BB3 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC970228334F8200CA6BB3 /* SplashViewModel.swift */; };
 		2EAC9706283352E300CA6BB3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC9705283352E300CA6BB3 /* Service.swift */; };
 		2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC97072833673B00CA6BB3 /* ServiceProvider.swift */; };
@@ -93,6 +95,7 @@
 		2EC0CE6E2837FFDA007ED601 /* MultipleKeywordWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0CE6D2837FFDA007ED601 /* MultipleKeywordWidgetView.swift */; };
 		2EC0CE6F283800D8007ED601 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5CA4282264C600F38EE4 /* DateExtension.swift */; };
 		2EC887ED28858EB100B09137 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC887EC28858EB100B09137 /* LottieView.swift */; };
+		2ECAF4882898100900E573E8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECAF4872898100900E573E8 /* LocationManager.swift */; };
 		2EEE030828560E44006D5B29 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2EEE030728560E44006D5B29 /* FirebaseMessaging */; };
 		2EEE030A285612C1006D5B29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEE0309285612C1006D5B29 /* AppDelegate.swift */; };
 		2EF13E4E28380DCC00B6080F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C5C65282220AB00F38EE4 /* Assets.xcassets */; };
@@ -190,6 +193,8 @@
 		2E8C5C9128224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordViewModelOnlyApp.swift; sourceTree = "<group>"; };
 		2E8C5C9C282253E700F38EE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2E8C5CA4282264C600F38EE4 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		2E9517782945A8DF001E6ED6 /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
+		2E95177A2945AA05001E6ED6 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		2EAC970128334EA600CA6BB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EAC970228334F8200CA6BB3 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		2EAC9705283352E300CA6BB3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -197,6 +202,7 @@
 		2EAC97092833A65000CA6BB3 /* HotKeywordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordService.swift; sourceTree = "<group>"; };
 		2EC0CE6D2837FFDA007ED601 /* MultipleKeywordWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleKeywordWidgetView.swift; sourceTree = "<group>"; };
 		2EC887EC28858EB100B09137 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		2ECAF4872898100900E573E8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2EEE0309285612C1006D5B29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF719E92865963E00FE0DE6 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		2EF719EB2865B93400FE0DE6 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
@@ -242,6 +248,7 @@
 				2E08DC92283776B6009092BC /* Logger.swift */,
 				2E5911192845236500B9E86A /* Screen.swift */,
 				2EF719E92865963E00FE0DE6 /* AsyncImage.swift */,
+				2ECAF4872898100900E573E8 /* LocationManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -275,6 +282,8 @@
 			children = (
 				2E8C5CA4282264C600F38EE4 /* DateExtension.swift */,
 				2EF719EB2865B93400FE0DE6 /* ViewExtension.swift */,
+				2E9517782945A8DF001E6ED6 /* AppExtension.swift */,
+				2E95177A2945AA05001E6ED6 /* DataExtension.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -625,6 +634,7 @@
 				2E2A15072882CC9000D62ACF /* WeatherForecastView.swift in Sources */,
 				2EEE030A285612C1006D5B29 /* AppDelegate.swift in Sources */,
 				2EAC970A2833A65100CA6BB3 /* HotKeywordService.swift in Sources */,
+				2E95177B2945AA05001E6ED6 /* DataExtension.swift in Sources */,
 				2E8C5C8D2822414600F38EE4 /* AppSettings.swift in Sources */,
 				2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */,
 				2EC887ED28858EB100B09137 /* LottieView.swift in Sources */,
@@ -636,8 +646,10 @@
 				2E08DC93283776B6009092BC /* Logger.swift in Sources */,
 				2E28C65C2864BFB500BBEAD5 /* HotKeywordView.swift in Sources */,
 				2E08DC95283782C3009092BC /* SettingView.swift in Sources */,
+				2E9517792945A8DF001E6ED6 /* AppExtension.swift in Sources */,
 				2E8C5C8F2822450600F38EE4 /* HotKeywordDefine.swift in Sources */,
 				2E08DC8F2837698F009092BC /* DialogContent.swift in Sources */,
+				2ECAF4882898100900E573E8 /* LocationManager.swift in Sources */,
 				2E8C5C62282220A900F38EE4 /* HotKeywordApp.swift in Sources */,
 				2E2A150928841AAF00D62ACF /* ForecastService.swift in Sources */,
 				2E01D150282DF107008EA239 /* RootView.swift in Sources */,
@@ -806,7 +818,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -838,7 +850,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -871,7 +883,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cslee.HotKeyword.KeywordWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -900,7 +912,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cslee.HotKeyword.KeywordWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

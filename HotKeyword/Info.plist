@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>use gps?</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3500187310501965~7478821530</string>
 	<key>GADIsAdManagerApp</key>

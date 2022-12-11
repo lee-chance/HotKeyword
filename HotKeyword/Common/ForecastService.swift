@@ -8,7 +8,7 @@
 import Foundation
 
 enum ForecastService {
-    case forecast
+    case forecast(lat: Double, lng: Double)
 }
 
 extension ForecastService: Service {
@@ -22,11 +22,10 @@ extension ForecastService: Service {
     
     var parameters: [String : Any]? {
         switch self {
-        case .forecast:
+        case .forecast(let lat, let lng):
             return [
-                // FIXME: 현재위치로 불러오기
-                "latitude" : "37.4792672",
-                "longitude" : "126.9526967",
+                "latitude" : "\(lat)",
+                "longitude" : "\(lng)",
                 "hourly" : "temperature_2m,relativehumidity_2m,weathercode",
                 "daily" : "weathercode,temperature_2m_max,temperature_2m_min",
                 "current_weather" : "true",

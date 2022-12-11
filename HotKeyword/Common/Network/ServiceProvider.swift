@@ -56,6 +56,7 @@ final class ServiceProvider<S: Service> {
                 // 4. Decoding Data
                 let decoded = try JSONDecoder().decode(decodeType, from: data)
                 DispatchQueue.main.async {
+                    data.jsonPrettyPrint()
                     callback(.success(decoded))
                 }
             } catch {

@@ -79,15 +79,13 @@ final class HotKeywordViewModel: ObservableObject {
                 
                 guard
                     let lastUpdatedAt = document.get("timestamp") as? Timestamp,
-                    let firebaseKeywords = document.get("keywords") as? [String]
+                    let keywords = document.get("keywords") as? [String]
                 else {
                     Logger.error("Document data was empty.")
                     return
                 }
                 
-                let keywords = firebaseKeywords.map { $0.components(separatedBy: " | ") }
-                
-                let hotKeywords = keywords.map { HotKeyword(rank: Int($0[1])!, latestRank: Int($0[2])!, text: $0[0]) }
+                let hotKeywords = keywords.indices.map { HotKeyword(rank: $0 + 1, text: keywords[$0]) }
                 
                 let model = HotKeywordModel(keywords: hotKeywords, updatedDate: lastUpdatedAt.dateValue())
                 
