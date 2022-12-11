@@ -30,14 +30,21 @@ struct WeatherForecastView<ViewModel: ForecastViewModelProtocol>: View {
                     Text("\(temperatureMax) / \(temperatureMin)")
                     
                     let hourlyWeathers = viewModel.hourlyWeathers
+                    let hourlyWeathersTodayAndTomorrow = hourlyWeathers
+                        .filter { $0.time >= currentWeather.time }
+                        .prefix(48)
                     
-                    ScrollView(.horizontal) {
+                    ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(hourlyWeathers.filter { $0.time >= currentWeather.time }) { weather in
+                            ForEach(hourlyWeathersTodayAndTomorrow) { weather in
                                 hourlyWeather(weather)
                             }
                         }
+                        .padding(.horizontal)
                     }
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(16)
+                    .padding()
                     
                     VStack {
                         ForEach(dailyWeathers[1...]) { weather in
@@ -45,7 +52,11 @@ struct WeatherForecastView<ViewModel: ForecastViewModelProtocol>: View {
                         }
                     }
                     .padding()
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(16)
+                    .padding(.horizontal)
                 }
+                .background(Color.green.opacity(0.8))
             } else {
                 ProgressView()
             }
