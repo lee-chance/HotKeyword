@@ -21,9 +21,10 @@ enum HotValue: String {
     }
 }
 
-enum UserDefaultsKey {
+enum AppStorageKey {
     case searchEngine
     case allowsNotification
+    case isFirstOpened
     
     var key: String {
         "com.cslee.HotKeyword.\(self)"
@@ -36,7 +37,7 @@ enum SearchEngine: String, CaseIterable, Identifiable {
     case google
     case bing
     
-    var id: String { self.rawValue }
+    var id: Self { self }
     
     var kor: String {
         switch self {

@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>현재위치의 날씨정보를 가져오기 위해 위치권한이 필요합니다.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>use gps?</string>
+	<string>현재위치의 날씨정보를 가져오기 위해 위치권한이 필요합니다.</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3500187310501965~7478821530</string>
 	<key>GADIsAdManagerApp</key>

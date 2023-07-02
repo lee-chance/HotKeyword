@@ -30,8 +30,10 @@ struct HotKeywordView: View {
                     UpdatedDateText(updatedDate: viewModel.updatedDate)
                 }
             }
+            .padding(.top, 1)
             .padding(.bottom, viewModel.bottomBannerHeight)
             .listStyle(.insetGrouped)
+            .background(Color(uiColor: .systemGray6))
             
             if !settings.adFree {
                 GoogleADBannerView(unitID: GoogleADKey.mainBanner.keyValue)

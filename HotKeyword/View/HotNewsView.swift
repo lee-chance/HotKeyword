@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HotNewsView: View {
+    @EnvironmentObject private var settings: AppSettings
     @Environment(\.colorScheme) var colorScheme
     
     @StateObject var viewModel: HotKeywordViewModel
@@ -72,8 +73,9 @@ struct HotNewsView: View {
                 .padding(.top, 48)
                 .padding(.bottom, 100)
             }
+            .padding(.top, 1)
             
-            if !AppSettings.shared.adFree {
+            if !settings.adFree {
                 GoogleADBannerView(unitID: GoogleADKey.mainBanner.keyValue)
                     .frame(height: viewModel.bottomBannerHeight)
             }
@@ -84,5 +86,6 @@ struct HotNewsView: View {
 struct HotNewsView_Previews: PreviewProvider {
     static var previews: some View {
         HotNewsView(viewModel: HotKeywordViewModel())
+            .environmentObject(AppSettings.shared)
     }
 }

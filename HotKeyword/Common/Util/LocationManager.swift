@@ -20,6 +20,19 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
         manager.requestWhenInUseAuthorization()
     }
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+         switch status {
+         case .authorizedAlways, .authorizedWhenInUse:
+             manager.startUpdatingLocation() // 중요!
+         case .restricted, .notDetermined:
+             manager.requestWhenInUseAuthorization()
+         case .denied:
+             manager.requestWhenInUseAuthorization()
+         default:
+             print("GPS: Default")
+         }
+     }
+    
     func startUpdatingLocation(completion: @escaping (CLLocationCoordinate2D) -> Void) {
         manager.startUpdatingLocation()
         

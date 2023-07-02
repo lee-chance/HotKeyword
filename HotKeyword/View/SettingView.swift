@@ -8,43 +8,45 @@
 import SwiftUI
 
 struct SettingView: View {
-    @State private var selectedSearchEngine: SearchEngine
-    @ObservedObject var settings = AppSettings.shared
-    
-    init() {
-        self.selectedSearchEngine = AppSettings.shared.searchEngine
+    @AppStorage(AppStorageKey.searchEngine.key) var searchEngine: SearchEngine = .naver
+    @AppStorage(AppStorageKey.allowsNotification.key) var allowsNotification: Bool = false {
+        didSet {
+            if allowsNotification {
+                FCMManager.subscribe(topic: .hotKeyword(clock: 9)) { _ in
+                    allowsNotification = false
+                }
+            } else {
+                FCMManager.unsubscribe(topic: .hotKeyword(clock: 9)) { _ in
+                    allowsNotification = true
+                }
+            }
+        }
     }
     
     var body: some View {
         List {
             if #available(iOS 15.0, *) {
-                Picker("\(selectedSearchEngine.kor)에서 검색하기", selection: $selectedSearchEngine) {
+                Picker("\(searchEngine.kor)에서 검색하기", selection: $searchEngine) {
                     ForEach(SearchEngine.allCases) { engine in
                         Text(engine.kor)
                             .tag(engine)
                     }
                 }
                 .pickerStyle(.inline)
-                .onChange(of: selectedSearchEngine) { newValue in
-                    AppSettings.shared.setSearchEngine(newValue)
-                }
             } else {
                 Section {
                     HStack {
-                        Text(selectedSearchEngine.kor)
+                        Text(searchEngine.kor)
                         
                         Spacer()
                         
-                        Picker("변경하기", selection: $selectedSearchEngine) {
+                        Picker("변경하기", selection: $searchEngine) {
                             ForEach(SearchEngine.allCases) { engine in
                                 Text(engine.kor)
                                     .tag(engine)
                             }
                         }
                         .pickerStyle(.menu)
-                        .onChange(of: selectedSearchEngine) { newValue in
-                            AppSettings.shared.setSearchEngine(newValue)
-                        }
                     }
                 } header: {
                     Text("어디서 검색할까요?")
@@ -65,7 +67,7 @@ struct SettingView: View {
                     
                     Spacer()
                     
-                    Toggle("", isOn: $settings.allowsNotification)
+                    Toggle("", isOn: $allowsNotification)
                 }
             } header: {
                 Text("알림")
@@ -83,8 +85,8 @@ struct SettingView: View {
                 Text("기타")
             }
         }
-        .navigationTitle("설정")
-        .navigationBarTitleDisplayMode(.inline)
+        .padding(.top, 1)
+        .background(Color(uiColor: .systemGray6))
     }
 }
 

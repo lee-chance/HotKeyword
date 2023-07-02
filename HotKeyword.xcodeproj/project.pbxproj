@@ -88,6 +88,10 @@
 		2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C5CA4282264C600F38EE4 /* DateExtension.swift */; };
 		2E9517792945A8DF001E6ED6 /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9517782945A8DF001E6ED6 /* AppExtension.swift */; };
 		2E95177B2945AA05001E6ED6 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95177A2945AA05001E6ED6 /* DataExtension.swift */; };
+		2E9946C52A510E1F0009B115 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9946C42A510E1F0009B115 /* OnboardingView.swift */; };
+		2E9946C92A5115660009B115 /* weather-onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E9946C62A5115660009B115 /* weather-onboarding.json */; };
+		2E9946CA2A5115660009B115 /* keyword-onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E9946C72A5115660009B115 /* keyword-onboarding.json */; };
+		2E9946CD2A511C030009B115 /* news-onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E9946CC2A511C020009B115 /* news-onboarding.json */; };
 		2EAC970328334F8200CA6BB3 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC970228334F8200CA6BB3 /* SplashViewModel.swift */; };
 		2EAC9706283352E300CA6BB3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC9705283352E300CA6BB3 /* Service.swift */; };
 		2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC97072833673B00CA6BB3 /* ServiceProvider.swift */; };
@@ -195,6 +199,10 @@
 		2E8C5CA4282264C600F38EE4 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2E9517782945A8DF001E6ED6 /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
 		2E95177A2945AA05001E6ED6 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		2E9946C42A510E1F0009B115 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2E9946C62A5115660009B115 /* weather-onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "weather-onboarding.json"; sourceTree = "<group>"; };
+		2E9946C72A5115660009B115 /* keyword-onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "keyword-onboarding.json"; sourceTree = "<group>"; };
+		2E9946CC2A511C020009B115 /* news-onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "news-onboarding.json"; sourceTree = "<group>"; };
 		2EAC970128334EA600CA6BB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EAC970228334F8200CA6BB3 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		2EAC9705283352E300CA6BB3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -316,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				2E01D14F282DF107008EA239 /* RootView.swift */,
+				2E9946C42A510E1F0009B115 /* OnboardingView.swift */,
 				2E01D151282DF110008EA239 /* SplashView.swift */,
 				2E8C5C63282220A900F38EE4 /* MainView.swift */,
 				2E2EB519282C1901001F5CBB /* SharedView.swift */,
@@ -351,6 +360,9 @@
 		2E72B43B288D4691009FAC3B /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				2E9946CC2A511C020009B115 /* news-onboarding.json */,
+				2E9946C72A5115660009B115 /* keyword-onboarding.json */,
+				2E9946C62A5115660009B115 /* weather-onboarding.json */,
 				2E72B43C288D46BF009FAC3B /* weather-day-broken-clouds.json */,
 				2E72B440288D46BF009FAC3B /* weather-day-clear-sky.json */,
 				2E72B43E288D46BF009FAC3B /* weather-day-few-clouds.json */,
@@ -577,6 +589,8 @@
 				2E72B44F288D46C0009FAC3B /* weather-night-shower-rains.json in Resources */,
 				2E72B45D288D46C0009FAC3B /* weather-night-thunderstorm.json in Resources */,
 				2E8C5C66282220AB00F38EE4 /* Assets.xcassets in Resources */,
+				2E9946C92A5115660009B115 /* weather-onboarding.json in Resources */,
+				2E9946CD2A511C030009B115 /* news-onboarding.json in Resources */,
 				2E2A150C2884651F00D62ACF /* Assets.xcassets in Resources */,
 				2E72B451288D46C0009FAC3B /* weather-day-thunderstorm.json in Resources */,
 				2E8C5C9D282253E700F38EE4 /* GoogleService-Info.plist in Resources */,
@@ -587,6 +601,7 @@
 				2E72B453288D46C0009FAC3B /* weather-day-mist.json in Resources */,
 				2E72B458288D46C0009FAC3B /* weather-day-scattered-clouds.json in Resources */,
 				2E72B456288D46C0009FAC3B /* weather-night-broken-clouds.json in Resources */,
+				2E9946CA2A5115660009B115 /* keyword-onboarding.json in Resources */,
 				2E72B44E288D46C0009FAC3B /* weather-day-broken-clouds.json in Resources */,
 				2E72B45C288D46C0009FAC3B /* weather-night-rain.json in Resources */,
 				2E72B459288D46C0009FAC3B /* weather-day-rain.json in Resources */,
@@ -612,6 +627,7 @@
 				2EF719EA2865963E00FE0DE6 /* AsyncImage.swift in Sources */,
 				2E8C5C9228224EBC00F38EE4 /* HotKeywordViewModelOnlyApp.swift in Sources */,
 				2E8C5CA5282264C600F38EE4 /* DateExtension.swift in Sources */,
+				2E9946C52A510E1F0009B115 /* OnboardingView.swift in Sources */,
 				2E4C4EF2283A57E2000D3C47 /* GoogleADBannerView.swift in Sources */,
 				2EAC9706283352E300CA6BB3 /* Service.swift in Sources */,
 				2E28C6602864C6B900BBEAD5 /* HotNews.swift in Sources */,

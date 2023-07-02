@@ -11,9 +11,13 @@ struct WeatherForecastView<ViewModel: ForecastViewModelProtocol>: View {
     @StateObject var viewModel: ViewModel
     
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [Color.blue.opacity(0.2), Color.blue.opacity(0.5)], startPoint: .topTrailing, endPoint: .bottomLeading)
-                .ignoresSafeArea()
+        GeometryReader { geometry in
+            LinearGradient(
+                colors: [.blue.opacity(0.2), .blue.opacity(0.5)],
+                startPoint: .topTrailing,
+                endPoint: .bottomLeading
+            )
+            .ignoresSafeArea()
             
             if let currentWeather = viewModel.currentWeather {
                 ScrollView {
@@ -21,10 +25,19 @@ struct WeatherForecastView<ViewModel: ForecastViewModelProtocol>: View {
                         Text(viewModel.currentAddress)
                             .font(.largeTitle)
                         
-                        Text(currentWeather.time.toStringDate(from: "yyyy-MM-dd'T'HH:mm"))
+                        HStack {
+                            Text(currentWeather.time.toStringDate(from: "yyyy-MM-dd'T'HH:mm", to: "MM월 dd일 EEEE HH:mm"))
+                            
+                            Image(systemName: "arrow.clockwise")
+                        }
+                        .onTapGesture {
+                            viewModel.loadForecast()
+                        }
+                        
+                        let lottieSize = geometry.size.width * 2 / 5
                         
                         LottieView(filename: viewModel.weatherLottieFilename)
-                            .frame(width: 150, height: 150)
+                            .frame(width: lottieSize, height: lottieSize)
                         
                         Text("\(currentWeather.temperature.toTemperatureString)")
                             .font(.largeTitle)
@@ -69,6 +82,7 @@ struct WeatherForecastView<ViewModel: ForecastViewModelProtocol>: View {
                 .padding(.top, 1)
             } else {
                 ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
         .onAppear {
@@ -78,14 +92,12 @@ struct WeatherForecastView<ViewModel: ForecastViewModelProtocol>: View {
     
     private func hourlyWeather(_ weather: HourlyWeather) -> some View {
         VStack {
-            Text(weather.time.toStringDate(from: "yyyy-MM-dd'T'HH:mm", to: "h a"))
+            Text(weather.time.toStringDate(from: "yyyy-MM-dd'T'HH:mm", to: "a h시"))
             
             let hour = Calendar.current.component(.hour, from: weather.time.toDate(format: "yyyy-MM-dd'T'HH:mm") ?? Date())
             let dayOrNight = 6 <= hour && hour <= 18 ? "day" : "night"
             LottieView(filename: "weather-\(dayOrNight)-\(weather.wmoCode.imageSuffixName).json")
                 .frame(width: 50, height: 50)
-            
-//            Text(weather.wmoCode.description)
             
             Text(weather.temperature2M.toTemperatureString)
         }
@@ -94,7 +106,11 @@ struct WeatherForecastView<ViewModel: ForecastViewModelProtocol>: View {
     
     private func dailyWeather(_ weather: DailyWeather) -> some View {
         HStack {
+            let weekday = Calendar.current.component(.weekday, from: weather.time.toDate(format: "yyyy-MM-dd") ?? Date())
+            
             Text(weather.time.toStringDate(from: "yyyy-MM-dd", to: "EEEE"))
+                .bold()
+                .foregroundColor(weekday == 1 ? .red : weekday == 7 ? .blue : nil)
             
             Spacer()
             

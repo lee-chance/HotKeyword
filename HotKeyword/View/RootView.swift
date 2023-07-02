@@ -8,12 +8,27 @@
 import SwiftUI
 
 struct RootView: View {
+    @AppStorage(AppStorageKey.isFirstOpened.key) var isFirstOpen: Bool = true
+    @State private var presentOnboardingView: Bool = false
+    
     var body: some View {
         ZStack {
-            MainView(viewModel: HotKeywordViewModel())
+            MainView()
             
             SplashView()
+                .zIndex(1)
+                .onDisappear {
+                    if isFirstOpen { presentOnboardingView.toggle() }
+                }
         }
+        .fullScreenCover(isPresented: $presentOnboardingView, onDismiss: {
+            #if DEBUG
+            #else
+            isFirstOpen = false
+            #endif
+        }, content: {
+            OnboardingView()
+        })
     }
 }
 
