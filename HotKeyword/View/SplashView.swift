@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct SplashView: View {
-    @ObservedObject var splash = SplashViewModel()
+    @StateObject private var splash = SplashViewModel()
     
-    @ViewBuilder
     var body: some View {
         if splash.showsSplashView {
             GeometryReader { geometry in
@@ -23,9 +22,6 @@ struct SplashView: View {
             }
             .ignoresSafeArea()
             .transition(.move(edge: .top))
-            .zIndex(1)
-        } else {
-            EmptyView()
         }
     }
 }

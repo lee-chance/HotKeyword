@@ -8,56 +8,41 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject var settings: AppSettings
-    @StateObject var viewModel: HotKeywordViewModel
-    
-    @State private var showSettingView = false
+    @StateObject private var viewModel = HotKeywordViewModel()
     
     var body: some View {
-        NavigationView {
-            TabView(selection: $viewModel.tabSelection) {
-                WeatherForecastView(viewModel: ForecastViewModel())
-                    .tabItem {
-                        Image(systemName: "sun.max.fill")
-                        
-                        Text(MainTab.forecast.name)
-                    }
-                    .tag(MainTab.forecast)
-                
-                HotKeywordView(viewModel: viewModel)
-                    .tabItem {
-                        Image(systemName: "rectangle.and.text.magnifyingglass")
-                        
-                        Text(MainTab.keyword.name)
-                    }
-                    .tag(MainTab.keyword)
-                
-                HotNewsView(viewModel: viewModel)
-                    .tabItem {
-                        Image(systemName: "newspaper.fill")
-                        
-                        Text(MainTab.news.name)
-                    }
-                    .tag(MainTab.news)
-            }
-            .navigationBarTitle(viewModel.navigationTitle)
-            .toolbar {
-                ToolbarItem {
-                    Button(action: {
-                        showSettingView.toggle()
-                    }) {
-                        Image(systemName: "gearshape.fill")
-                            .resizable()
-                            .frame(width: 16, height: 16)
-                    }
-                    .foregroundColor(.text)
+        TabView(selection: $viewModel.tabSelection) {
+            WeatherForecastView(viewModel: ForecastViewModel())
+                .tabItem {
+                    Image(systemName: "sun.max.fill")
+                    
+                    Text(MainTab.forecast.name)
                 }
-            }
-            .background(
-                NavigationLink(destination: SettingView(), isActive: $showSettingView) {
-                    EmptyView()
+                .tag(MainTab.forecast)
+            
+            HotKeywordView(viewModel: viewModel)
+                .tabItem {
+                    Image(systemName: "rectangle.and.text.magnifyingglass")
+                    
+                    Text(MainTab.keyword.name)
                 }
-            )
+                .tag(MainTab.keyword)
+            
+            HotNewsView(viewModel: viewModel)
+                .tabItem {
+                    Image(systemName: "newspaper.fill")
+                    
+                    Text(MainTab.news.name)
+                }
+                .tag(MainTab.news)
+            
+            SettingView()
+                .tabItem {
+                    Image(systemName: "gearshape.fill")
+                    
+                    Text(MainTab.settings.name)
+                }
+                .tag(MainTab.settings)
         }
         .onAppear {
             viewModel.hotKeywordBinding()
@@ -66,9 +51,9 @@ struct MainView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(viewModel: HotKeywordViewModel())
+        MainView()
             .preferredColorScheme(.dark)
     }
 }

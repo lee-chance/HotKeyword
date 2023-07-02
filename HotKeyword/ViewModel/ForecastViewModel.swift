@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 
 protocol ForecastViewModelProtocol: ObservableObject {
+    var currentAddress: String { get set }
     var currentWeather: CurrentWeather? { get set }
     var dailyWeathers: [DailyWeather] { get set }
     var hourlyWeathers: [HourlyWeather] { get set }
@@ -36,6 +37,7 @@ extension ForecastViewModelProtocol {
 }
 
 final class MockForecastViewModel: ForecastViewModelProtocol {
+    @Published var currentAddress: String = "London"
     @Published var currentWeather: CurrentWeather?
     @Published var dailyWeathers: [DailyWeather] = []
     @Published var hourlyWeathers: [HourlyWeather] = []
@@ -57,6 +59,7 @@ final class MockForecastViewModel: ForecastViewModelProtocol {
 final class ForecastViewModel: ForecastViewModelProtocol {
     private let provider = ServiceProvider<ForecastService>()
     
+    @Published var currentAddress: String = ""
     @Published var currentWeather: CurrentWeather?
     @Published var dailyWeathers: [DailyWeather] = []
     @Published var hourlyWeathers: [HourlyWeather] = []
@@ -66,8 +69,9 @@ final class ForecastViewModel: ForecastViewModelProtocol {
             let latitude = coordinate.latitude
             let longitude = coordinate.longitude
             
-            LocationManager().address(coordinate: coordinate) { address in
-                print(address.locality ?? address.subLocality ?? address.country ?? "대한민국")
+            LocationManager().address(coordinate: coordinate) { [weak self] address in
+                let address = address.locality ?? address.subLocality ?? address.country ?? "대한민국"
+                self?.currentAddress = address
             }
             
             self?.provider.get(service: .forecast(lat: latitude, lng: longitude), decodeType: Forecast.self) { result in

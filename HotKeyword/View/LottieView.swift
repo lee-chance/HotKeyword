@@ -59,8 +59,18 @@ struct LottieView: UIViewRepresentable {
     func updateUIView(_ uiView: UIViewType, context: UIViewRepresentableContext<LottieView>) {}
 }
 
-//struct LottieView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LottieView()
-//    }
-//}
+struct LottieView_Previews: PreviewProvider {
+    static var previews: some View {
+        LazyVGrid(columns: Array(repeating: GridItem(), count: 3)) {
+            ForEach(["clear-sky", "few-clouds", "scattered-clouds", "broken-clouds", "mist", "shower-rains", "rain", "snow", "thunderstorm"], id: \.self) { name in
+                LottieView(filename: "weather-day-\(name).json")
+                    .frame(width: 100, height: 100)
+            }
+            
+            ForEach(["clear-sky", "few-clouds", "scattered-clouds", "broken-clouds", "mist", "shower-rains", "rain", "snow", "thunderstorm"], id: \.self.hashValue) { name in
+                LottieView(filename: "weather-night-\(name).json")
+                    .frame(width: 100, height: 100)
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 enum MainTab {
-    case forecast, keyword, news
+    case forecast, keyword, news, settings
     
     var name: String {
         switch self {
@@ -19,19 +19,23 @@ enum MainTab {
             return "검색어"
         case .news:
             return "뉴스"
+        case .settings:
+            return "설정"
         }
     }
     
-    var navigationTitle: String {
-        switch self {
-        case .forecast:
-            return "🔥 실시간 날씨"
-        case .keyword:
-            return "🔥 실시간 인기 검색어"
-        case .news:
-            return "🔥 실시간 인기 뉴스"
-        }
-    }
+//    var navigationTitle: String {
+//        switch self {
+//        case .forecast:
+//            return "🔥 실시간 날씨"
+//        case .keyword:
+//            return "🔥 실시간 인기 검색어"
+//        case .news:
+//            return "🔥 실시간 인기 뉴스"
+//        case .settings:
+//            return "설정"
+//        }
+//    }
 }
 
 final class HotKeywordViewModel: ObservableObject {
@@ -43,9 +47,9 @@ final class HotKeywordViewModel: ObservableObject {
     
     
     // MARK: - UI
-    var navigationTitle: String {
-        tabSelection.navigationTitle
-    }
+//    var navigationTitle: String {
+//        tabSelection.navigationTitle
+//    }
     
     var keywords: [HotKeyword] {
         model.keywords

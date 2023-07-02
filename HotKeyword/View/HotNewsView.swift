@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HotNewsView: View {
-    @StateObject var viewModel: HotKeywordViewModel
     @Environment(\.colorScheme) var colorScheme
+    
+    @StateObject var viewModel: HotKeywordViewModel
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -21,26 +22,13 @@ struct HotNewsView: View {
                                 .frame(maxWidth: .infinity)
                                 .aspectRatio(5 / 3, contentMode: .fit)
                                 .background(
-                                    ZStack {
-                                        if #available(iOS 15.0, *) {
-                                            AsyncImage(url: article.imageURL) { image in
-                                                image
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .frame(maxWidth: .infinity)
-                                            } placeholder: {
-                                                Text("loading...")
-                                            }
-                                        } else {
-                                            AsyncImageUnderiOS15(url: article.imageURL) { image in
-                                                image
-                                                    .resizable()
-                                                    .scaledToFill()
-                                                    .frame(maxWidth: .infinity)
-                                            } placeholder: {
-                                                Text("loading...")
-                                            }
-                                        }
+                                    AsyncImage(url: article.imageURL) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(maxWidth: .infinity)
+                                    } placeholder: {
+                                        ProgressView()
                                     }
                                 )
                                 .cornerRadius(8, corners: .top)
@@ -93,8 +81,8 @@ struct HotNewsView: View {
     }
 }
 
-//struct HotNewsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HotNewsView()
-//    }
-//}
+struct HotNewsView_Previews: PreviewProvider {
+    static var previews: some View {
+        HotNewsView(viewModel: HotKeywordViewModel())
+    }
+}

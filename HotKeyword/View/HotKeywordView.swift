@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HotKeywordView: View {
-    @EnvironmentObject var settings: AppSettings
+    @EnvironmentObject private var settings: AppSettings
     @StateObject var viewModel: HotKeywordViewModel
     
     var body: some View {
@@ -22,20 +22,18 @@ struct HotKeywordView: View {
                             KeywordRow(keyword: keyword)
                         }
                         
-                        if keyword.rank == 10 && !AppSettings.shared.adFree {
+                        if keyword.rank == 10 && !settings.adFree {
                             GoogleADBannerView(unitID: GoogleADKey.mainListBanner.keyValue)
                         }
                     }
                 } header: {
                     UpdatedDateText(updatedDate: viewModel.updatedDate)
-                        .animation(nil)
                 }
             }
             .padding(.bottom, viewModel.bottomBannerHeight)
             .listStyle(.insetGrouped)
-            .accentColor(.text)
             
-            if !AppSettings.shared.adFree {
+            if !settings.adFree {
                 GoogleADBannerView(unitID: GoogleADKey.mainBanner.keyValue)
                     .frame(height: viewModel.bottomBannerHeight)
             }
@@ -43,8 +41,9 @@ struct HotKeywordView: View {
     }
 }
 
-//struct HotKeywordView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HotKeywordView()
-//    }
-//}
+struct HotKeywordView_Previews: PreviewProvider {
+    static var previews: some View {
+        HotKeywordView(viewModel: HotKeywordViewModel())
+            .environmentObject(AppSettings.shared)
+    }
+}

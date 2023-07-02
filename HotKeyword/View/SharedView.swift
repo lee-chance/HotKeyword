@@ -13,7 +13,6 @@ struct KeywordRow: View {
     var body: some View {
         HStack {
             Text("\(keyword.rank)")
-                .foregroundColor(.text)
                 .frame(width: 32, height: 32)
                 .background(
                     Rectangle()
@@ -22,7 +21,6 @@ struct KeywordRow: View {
                 )
             
             Text(keyword.text)
-                .foregroundColor(.text)
             
             Spacer()
         }
