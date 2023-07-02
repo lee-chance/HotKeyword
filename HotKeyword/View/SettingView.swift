@@ -9,19 +9,7 @@ import SwiftUI
 
 struct SettingView: View {
     @AppStorage(AppStorageKey.searchEngine.key) var searchEngine: SearchEngine = .naver
-    @AppStorage(AppStorageKey.allowsNotification.key) var allowsNotification: Bool = false {
-        didSet {
-            if allowsNotification {
-                FCMManager.subscribe(topic: .hotKeyword(clock: 9)) { _ in
-                    allowsNotification = false
-                }
-            } else {
-                FCMManager.unsubscribe(topic: .hotKeyword(clock: 9)) { _ in
-                    allowsNotification = true
-                }
-            }
-        }
-    }
+    @AppStorage(AppStorageKey.allowsNotification.key) var allowsNotification: Bool = false
     
     var body: some View {
         List {
@@ -68,6 +56,17 @@ struct SettingView: View {
                     Spacer()
                     
                     Toggle("", isOn: $allowsNotification)
+                        .onChange(of: allowsNotification) { newValue in
+                            if newValue {
+                                FCMManager.subscribe(topic: .hotKeyword(clock: 9)) { _ in
+                                    allowsNotification = false
+                                }
+                            } else {
+                                FCMManager.unsubscribe(topic: .hotKeyword(clock: 9)) { _ in
+                                    allowsNotification = true
+                                }
+                            }
+                        }
                 }
             } header: {
                 Text("알림")

@@ -90,6 +90,11 @@ extension MultipleKeywordWidgetView {
                 }
             }
             .padding(8)
+            .frame(maxWidth: .infinity, maxHeight: .infinity) // 상하단 여백을 없애기 위해 반드시 필요!
+            .background(
+                LinearGradient(colors: [.red, .yellow], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .opacity(0.6)
+            )
         }
     }
     

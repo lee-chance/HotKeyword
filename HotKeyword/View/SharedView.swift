@@ -12,19 +12,18 @@ struct KeywordRow: View {
     
     var body: some View {
         HStack {
-            Text("\(keyword.rank)")
+            Rectangle()
                 .frame(width: 32, height: 32)
-                .background(
-                    Rectangle()
-                        .background(Color.gray.opacity(0.3))
-                        .cornerRadius(8)
+                .foregroundColor(.gray.opacity(0.3))
+                .cornerRadius(8)
+                .overlay(
+                    Text("\(keyword.rank)")
                 )
             
             Text(keyword.text)
             
             Spacer()
         }
-        .foregroundColor(.clear)
     }
 }
 
@@ -32,9 +31,16 @@ struct UpdatedDateText: View {
     let updatedDate: Date
     
     var body: some View {
+        #if DEBUG
         Text("\(updatedDate.toString(format: "HH시 mm분 ss초"))")
-            .font(Font.caption)
+            .font(.caption)
             .foregroundColor(.gray)
             .frame(maxWidth: .infinity, alignment: .trailing)
+        #else
+        Text("\(updatedDate.toString(format: "HH시 mm분"))")
+            .font(.caption)
+            .foregroundColor(.gray)
+            .frame(maxWidth: .infinity, alignment: .trailing)
+        #endif
     }
 }

@@ -28,13 +28,13 @@ struct MainView: View {
                 }
                 .tag(MainTab.keyword)
             
-            HotNewsView(viewModel: viewModel)
-                .tabItem {
-                    Image(systemName: "newspaper.fill")
-                    
-                    Text(MainTab.news.name)
-                }
-                .tag(MainTab.news)
+//            HotNewsView(viewModel: viewModel)
+//                .tabItem {
+//                    Image(systemName: "newspaper.fill")
+//
+//                    Text(MainTab.news.name)
+//                }
+//                .tag(MainTab.news)
             
             SettingView()
                 .tabItem {
@@ -46,7 +46,7 @@ struct MainView: View {
         }
         .onAppear {
             viewModel.hotKeywordBinding()
-            viewModel.hotNewsBinding()
+//            viewModel.hotNewsBinding()
         }
     }
 }

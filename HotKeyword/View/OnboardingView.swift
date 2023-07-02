@@ -69,9 +69,13 @@ struct OnboardingView: View {
 
 private extension OnboardingView {
     enum Step: Identifiable, CaseIterable {
-        case keyword, news, weather
+        case keyword, news, weather, widget
         
         var id: Self { self }
+        
+        static var allCases: [OnboardingView.Step] {
+            [.keyword, .widget, .weather]
+        }
         
         var lottieFilename: String {
             switch self {
@@ -81,6 +85,8 @@ private extension OnboardingView {
                 return "news-onboarding"
             case .weather:
                 return "weather-onboarding"
+            case .widget:
+                return "widget-onboarding"
             }
         }
         
@@ -92,6 +98,8 @@ private extension OnboardingView {
                 return "실시간 뉴스"
             case .weather:
                 return "실시간 날씨"
+            case .widget:
+                return "위젯 지원"
             }
         }
         
@@ -103,6 +111,8 @@ private extension OnboardingView {
                 return "뉴스탭은 심플한 화면으로 한국의 뉴스를 빠르고 편리하게 접할 수 있습니다."
             case .weather:
                 return "현재 위치의 실시간, 48시간, 이번주 날씨 정보를 신속하게 확인할 수 있습니다."
+            case .widget:
+                return "홈 화면에 위젯을 추가하여 현재 인기있는 실시간 검색어 Top3를 빠르게 확인할 수 있습니다."
             }
         }
     }
