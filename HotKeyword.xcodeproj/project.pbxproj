@@ -93,6 +93,8 @@
 		2E9946C92A5115660009B115 /* weather-onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E9946C62A5115660009B115 /* weather-onboarding.json */; };
 		2E9946CA2A5115660009B115 /* keyword-onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E9946C72A5115660009B115 /* keyword-onboarding.json */; };
 		2E9946CD2A511C030009B115 /* news-onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E9946CC2A511C020009B115 /* news-onboarding.json */; };
+		2EA20F082A595C5300193632 /* HotWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA20F072A595C5300193632 /* HotWebView.swift */; };
+		2EA20F0A2A59B41B00193632 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA20F092A59B41B00193632 /* CarouselView.swift */; };
 		2EAC970328334F8200CA6BB3 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC970228334F8200CA6BB3 /* SplashViewModel.swift */; };
 		2EAC9706283352E300CA6BB3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC9705283352E300CA6BB3 /* Service.swift */; };
 		2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC97072833673B00CA6BB3 /* ServiceProvider.swift */; };
@@ -181,7 +183,7 @@
 		2E72B44C288D46C0009FAC3B /* weather-day-snow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "weather-day-snow.json"; sourceTree = "<group>"; };
 		2E72B44D288D46C0009FAC3B /* weather-night-snow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "weather-night-snow.json"; sourceTree = "<group>"; };
 		2E7F00FB285A21DD00C2B407 /* FCMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMManager.swift; sourceTree = "<group>"; };
-		2E8C5C5E282220A900F38EE4 /* HotKeyword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotKeyword.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E8C5C5E282220A900F38EE4 /* HOT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HOT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8C5C61282220A900F38EE4 /* HotKeywordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeywordApp.swift; sourceTree = "<group>"; };
 		2E8C5C63282220A900F38EE4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2E8C5C65282220AB00F38EE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -205,6 +207,8 @@
 		2E9946C62A5115660009B115 /* weather-onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "weather-onboarding.json"; sourceTree = "<group>"; };
 		2E9946C72A5115660009B115 /* keyword-onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "keyword-onboarding.json"; sourceTree = "<group>"; };
 		2E9946CC2A511C020009B115 /* news-onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "news-onboarding.json"; sourceTree = "<group>"; };
+		2EA20F072A595C5300193632 /* HotWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotWebView.swift; sourceTree = "<group>"; };
+		2EA20F092A59B41B00193632 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		2EAC970128334EA600CA6BB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EAC970228334F8200CA6BB3 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		2EAC9705283352E300CA6BB3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -333,9 +337,11 @@
 				2E08DC94283782C3009092BC /* SettingView.swift */,
 				2E4C4EF1283A57E2000D3C47 /* GoogleADBannerView.swift */,
 				2E28C65B2864BFB500BBEAD5 /* HotKeywordView.swift */,
+				2EA20F072A595C5300193632 /* HotWebView.swift */,
 				2E28C65D2864C05B00BBEAD5 /* HotNewsView.swift */,
 				2E2A15062882CC9000D62ACF /* WeatherForecastView.swift */,
 				2EC887EC28858EB100B09137 /* LottieView.swift */,
+				2EA20F092A59B41B00193632 /* CarouselView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,7 +415,7 @@
 		2E8C5C5F282220A900F38EE4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2E8C5C5E282220A900F38EE4 /* HotKeyword.app */,
+				2E8C5C5E282220A900F38EE4 /* HOT.app */,
 				2E8C5C732822211400F38EE4 /* KeywordWidgetExtension.appex */,
 			);
 			name = Products;
@@ -485,9 +491,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2E8C5C5D282220A900F38EE4 /* HotKeyword */ = {
+		2E8C5C5D282220A900F38EE4 /* HOT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E8C5C6C282220AB00F38EE4 /* Build configuration list for PBXNativeTarget "HotKeyword" */;
+			buildConfigurationList = 2E8C5C6C282220AB00F38EE4 /* Build configuration list for PBXNativeTarget "HOT" */;
 			buildPhases = (
 				2E8C5C5A282220A900F38EE4 /* Sources */,
 				2E8C5C5B282220A900F38EE4 /* Frameworks */,
@@ -499,7 +505,7 @@
 			dependencies = (
 				2E8C5C802822211500F38EE4 /* PBXTargetDependency */,
 			);
-			name = HotKeyword;
+			name = HOT;
 			packageProductDependencies = (
 				2E394D72282A3A8100445D5C /* FirebaseAnalytics */,
 				2E394D76282A3A8100445D5C /* FirebaseCrashlytics */,
@@ -510,7 +516,7 @@
 				2E447A6E288D5BAF00D886B5 /* Lottie */,
 			);
 			productName = HotKeyword;
-			productReference = 2E8C5C5E282220A900F38EE4 /* HotKeyword.app */;
+			productReference = 2E8C5C5E282220A900F38EE4 /* HOT.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2E8C5C722822211400F38EE4 /* KeywordWidgetExtension */ = {
@@ -572,7 +578,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2E8C5C5D282220A900F38EE4 /* HotKeyword */,
+				2E8C5C5D282220A900F38EE4 /* HOT */,
 				2E8C5C722822211400F38EE4 /* KeywordWidgetExtension */,
 			);
 		};
@@ -645,6 +651,7 @@
 				2E004C142834F7180070A90B /* Async.swift in Sources */,
 				2E08DC9128376A40009092BC /* DialogStruct.swift in Sources */,
 				2E8C5C64282220A900F38EE4 /* MainView.swift in Sources */,
+				2EA20F082A595C5300193632 /* HotWebView.swift in Sources */,
 				2E59111A2845236500B9E86A /* Screen.swift in Sources */,
 				2E08DC8D28376965009092BC /* DialogPresentation.swift in Sources */,
 				2E01D152282DF110008EA239 /* SplashView.swift in Sources */,
@@ -658,6 +665,7 @@
 				2E8C5C8D2822414600F38EE4 /* AppSettings.swift in Sources */,
 				2EAC97082833673B00CA6BB3 /* ServiceProvider.swift in Sources */,
 				2EC887ED28858EB100B09137 /* LottieView.swift in Sources */,
+				2EA20F0A2A59B41B00193632 /* CarouselView.swift in Sources */,
 				2E7F00FC285A21DD00C2B407 /* FCMManager.swift in Sources */,
 				2E004C122834EEF30070A90B /* AppInitialize.swift in Sources */,
 				2E2A150E288465C200D62ACF /* ForecastViewModel.swift in Sources */,
@@ -954,7 +962,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E8C5C6C282220AB00F38EE4 /* Build configuration list for PBXNativeTarget "HotKeyword" */ = {
+		2E8C5C6C282220AB00F38EE4 /* Build configuration list for PBXNativeTarget "HOT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E8C5C6D282220AB00F38EE4 /* Debug */,

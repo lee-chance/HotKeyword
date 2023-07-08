@@ -38,6 +38,10 @@ enum MainTab {
 //    }
 }
 
+extension URL: Identifiable {
+    public var id: String { self.absoluteString }
+}
+
 final class HotKeywordViewModel: ObservableObject {
     @Published var tabSelection: MainTab = .keyword
     
@@ -45,6 +49,7 @@ final class HotKeywordViewModel: ObservableObject {
     
     @Published private(set) var news = [Article]()
     
+    @Published var openURL: URL?
     
     // MARK: - UI
 //    var navigationTitle: String {

@@ -10,6 +10,8 @@ import SwiftUI
 struct WeatherForecastView<ViewModel: ForecastViewModelProtocol>: View {
     @StateObject var viewModel: ViewModel
     
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         GeometryReader { geometry in
             LinearGradient(
@@ -83,6 +85,9 @@ struct WeatherForecastView<ViewModel: ForecastViewModelProtocol>: View {
             } else {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .onReceive(timer) { value in
+                        viewModel.loadForecast()
+                    }
             }
         }
         .onAppear {

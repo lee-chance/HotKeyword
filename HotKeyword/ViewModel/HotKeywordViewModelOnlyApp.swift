@@ -20,13 +20,8 @@ extension HotKeywordViewModel {
         let encodedString = searchingURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         if let url = URL(string: encodedString) {
-            UIApplication.shared.open(url, options: [:]) { [weak self] opened in
-                if opened {
-                    self?.addCount(keyword: keyword)
-                } else {
-                    Logger.error("오류 발생: \(searchingURLString)")
-                }
-            }
+            addCount(keyword: keyword)
+            openURL = url
         } else {
             Logger.error("오류 발생: \(searchingURLString)")
         }

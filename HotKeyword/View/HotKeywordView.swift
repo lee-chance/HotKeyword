@@ -45,6 +45,7 @@ struct HotKeywordView: View {
                             viewModel.search(keyword: keyword.text, from: settings.searchEngine)
                         }) {
                             KeywordRow(keyword: keyword)
+                                .contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
                         
@@ -73,6 +74,9 @@ struct HotKeywordView: View {
         }
         .onTapGesture {
             isFocused = false
+        }
+        .sheet(item: $viewModel.openURL) { _ in
+            HotWebView(viewModel: viewModel)
         }
     }
 }
